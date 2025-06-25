@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezanto - Streamline Package Management for Your Building</title>
+    <meta name="description" content="Automate package notifications, reduce concierge workload, and improve resident satisfaction with our comprehensive building management platform.">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Google Analytics (optional - add your tracking ID) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script> -->
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📦</text></svg>">
+</head>
+<body>
+    <div class="landing-page">
+        <!-- Header -->
+        <header class="landing-header">
+            <div class="container">
+                <div class="logo">
+                    <h1>Rezanto</h1>
+                </div>
+                <nav class="nav">
+                    <a href="#features">Features</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#contact">Contact</a>
+                    <button class="btn-login" onclick="window.location.href='https://app.rezanto.com/login'">
+                        Login
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Streamline Package Management for Your Building</h1>
+                    <p class="hero-subtitle">
+                        Automate package notifications, reduce concierge workload, and improve resident satisfaction 
+                        with our comprehensive building management platform.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Hours Saved Monthly</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Package Tracking</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Automated Notifications</span>
+                        </div>
+                    </div>
+                    <div class="hero-cta">
+                        <button class="btn-primary" onclick="handleViewDemo()">
+                            View Demo
+                        </button>
+                        <button class="btn-secondary" onclick="window.location.href='https://app.rezanto.com/login'">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <h2>Everything You Need for Efficient Package Management</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📦</div>
+                        <h3>Automated Package Tracking</h3>
+                        <p>Track every package from delivery to pickup with automatic notifications to residents.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📧</div>
+                        <h3>Smart Email Notifications</h3>
+                        <p>Branded email templates with delivery confirmations, pickup reminders, and over-limit alerts.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">👥</div>
+                        <h3>Resident Management</h3>
+                        <p>Easy resident registration, email verification, and unit management with tower support.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Usage Analytics</h3>
+                        <p>Monitor package volumes, set monthly limits, and generate detailed usage reports.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Billing Integration</h3>
+                        <p>Automatic fee calculation for packages exceeding monthly limits with detailed reporting.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🏢</div>
+                        <h3>Multi-Building Support</h3>
+                        <p>Manage multiple properties with custom branding and settings for each building.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ROI Section -->
+        <section class="roi-section">
+            <div class="container">
+                <h2>Calculate Your Savings</h2>
+                <div class="roi-content">
+                    <div class="roi-comparison">
+                        <div class="comparison-item">
+                            <h3>Manual Process</h3>
+                            <ul>
+                                <li>2 hours daily for package management</li>
+                                <li>$20/hour concierge cost</li>
+                                <li>Annual cost: <strong>$14,600</strong></li>
+                                <li>Plus: Human errors, missed notifications</li>
+                            </ul>
+                        </div>
+                        <div class="vs-divider">VS</div>
+                        <div class="comparison-item highlight">
+                            <h3>Rezanto</h3>
+                            <ul>
+                                <li>Fully automated notifications</li>
+                                <li>5 minutes daily oversight</li>
+                                <li>Annual cost: <strong>$500-800</strong></li>
+                                <li>Plus: 100% accuracy, 24/7 operation</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="savings-highlight">
+                        <h3>Save up to $13,800 annually</h3>
+                        <p>ROI: 1,725% return on investment</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="pricing">
+            <div class="container">
+                <h2>Simple, Transparent Pricing</h2>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>Standard</h3>
+                        <div class="price">$500 CAD</div>
+                        <div class="price-period">per year</div>
+                        <ul>
+                            <li>Up to 200 units</li>
+                            <li>Unlimited package tracking</li>
+                            <li>Email notifications</li>
+                            <li>Usage reporting</li>
+                            <li>Basic support</li>
+                        </ul>
+                        <button class="btn-pricing" onclick="window.location.href='https://app.rezanto.com/login'">
+                            Get Started
+                        </button>
+                    </div>
+                    <div class="pricing-card featured">
+                        <div class="popular-badge">Most Popular</div>
+                        <h3>Professional</h3>
+                        <div class="price">$800 CAD</div>
+                        <div class="price-period">per year</div>
+                        <ul>
+                            <li>200+ units</li>
+                            <li>Everything in Standard</li>
+                            <li>Custom branding</li>
+                            <li>Advanced analytics</li>
+                            <li>Priority support</li>
+                        </ul>
+                        <button class="btn-pricing" onclick="window.location.href='https://app.rezanto.com/login'">
+                            Get Started
+                        </button>
+                    </div>
+                    <div class="pricing-card">
+                        <h3>Enterprise</h3>
+                        <div class="price">Custom</div>
+                        <div class="price-period">contact us</div>
+                        <ul>
+                            <li>Multiple buildings</li>
+                            <li>Custom integrations</li>
+                            <li>Dedicated support</li>
+                            <li>Custom features</li>
+                            <li>SLA guarantees</li>
+                        </ul>
+                        <button class="btn-pricing" onclick="window.location.href='#contact'">
+                            Contact Sales
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <h2>Trusted by Property Managers</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <blockquote>
+                            "Rezanto has transformed our package management. We've reduced our concierge workload by 70% 
+                            and eliminated missed package notifications entirely."
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <strong>Property Manager</strong>
+                            <span>200+ Unit Complex</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <blockquote>
+                            "The ROI is incredible. We save over $10,000 annually in staff time while providing better 
+                            service to our residents."
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <strong>Building Administrator</strong>
+                            <span>High-Rise Residential</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <blockquote>
+                            "Setup was seamless and the system just works. Our residents love the instant notifications 
+                            and we love the time savings."
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <strong>Concierge Manager</strong>
+                            <span>Luxury Condominium</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Ready to Get Started?</h2>
+                <p>Transform your package management today. Contact us for a personalized demo or trial.</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <strong>Contact:</strong> info@rezanto.com
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <h3>Rezanto</h3>
+                        <p>Streamlining building management, one package at a time.</p>
+                    </div>
+                    <div class="footer-links">
+                        <div class="footer-column">
+                            <h4>Product</h4>
+                            <a href="#features">Features</a>
+                            <a href="#pricing">Pricing</a>
+                            <a href="#contact">Demo</a>
+                        </div>
+                        <div class="footer-column">
+                            <h4>Support</h4>
+                            <a href="#contact">Contact Us</a>
+                            <a href="https://app.rezanto.com/login">Login</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 Rezanto. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
