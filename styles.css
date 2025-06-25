@@ -359,6 +359,17 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.pricing-grid-row2 {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.enterprise-centered {
+  max-width: 350px;
 }
 
 .pricing-card {
