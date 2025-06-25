@@ -1,4 +1,61 @@
 /* Landing Page Styles */
+
+/* Legal Pages Styles */
+.legal-content {
+  padding: 4rem 0;
+  background: #f8f9fa;
+}
+
+.legal-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.legal-header h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.legal-subtitle {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.legal-text {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 3rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.legal-text h2 {
+  color: #667eea;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.legal-text h2:first-child {
+  margin-top: 0;
+}
+
+.legal-text p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.legal-text ul {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.legal-text li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
 .landing-page {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   line-height: 1.6;
