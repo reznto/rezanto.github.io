@@ -2,9 +2,93 @@
 
 // Handle demo functionality
 function handleViewDemo() {
-  // Since this is a static site, we can't call the API directly
-  // Instead, redirect to the app with demo parameter
-  window.location.href = 'https://app.rezanto.com/login?demo=true';
+  showDemoLoadingModal();
+  
+  // Ping the app first to wake it up
+  fetch('https://app.rezanto.com/health', { mode: 'no-cors' })
+    .catch(() => {}); // Ignore errors, just wake up the server
+  
+  // Redirect after showing loading for a moment
+  setTimeout(() => {
+    window.location.href = 'https://app.rezanto.com/login?demo=true';
+  }, 1000);
+}
+
+function showDemoLoadingModal() {
+  const modal = document.createElement('div');
+  modal.className = 'demo-loading-modal';
+  modal.innerHTML = `
+    <div class="demo-loading-content">
+      <div class="demo-loading-header">
+        <div class="rezanto-logo">Rezanto</div>
+        <h3>Launching Demo Environment</h3>
+      </div>
+      
+      <div class="demo-loading-body">
+        <div class="loading-animation">
+          <div class="loading-spinner"></div>
+        </div>
+        
+        <div class="loading-status">
+          <div class="status-text">Initializing secure demo environment...</div>
+          <div class="status-subtext">This may take 10-15 seconds for optimal performance</div>
+        </div>
+        
+        <div class="loading-features">
+          <div class="feature-item">
+            <span class="feature-icon">🔒</span>
+            <span>Secure isolated environment</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">📊</span>
+            <span>Pre-loaded sample data</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">⚡</span>
+            <span>Full feature access</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="demo-loading-footer">
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+        <div class="progress-text">Preparing your demo experience...</div>
+      </div>
+    </div>
+  `;
+  
+  document.body.appendChild(modal);
+  
+  // Animate progress bar
+  const progressFill = modal.querySelector('.progress-fill');
+  const statusText = modal.querySelector('.status-text');
+  const progressText = modal.querySelector('.progress-text');
+  
+  let progress = 0;
+  const progressInterval = setInterval(() => {
+    progress += Math.random() * 15;
+    if (progress > 100) progress = 100;
+    
+    progressFill.style.width = progress + '%';
+    
+    if (progress < 30) {
+      statusText.textContent = 'Initializing secure demo environment...';
+      progressText.textContent = 'Preparing your demo experience...';
+    } else if (progress < 70) {
+      statusText.textContent = 'Loading sample data and configurations...';
+      progressText.textContent = 'Almost ready...';
+    } else {
+      statusText.textContent = 'Finalizing demo setup...';
+      progressText.textContent = 'Launching in a moment...';
+    }
+  }, 200);
+  
+  // Clean up after redirect
+  setTimeout(() => {
+    clearInterval(progressInterval);
+  }, 10000);
 }
 
 // Smooth scrolling for anchor links
