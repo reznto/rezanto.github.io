@@ -125,20 +125,6 @@ function showLoginLoadingModal() {
           <div class="status-subtext">This may take 10-15 seconds for optimal performance</div>
         </div>
         
-        <div class="loading-features">
-          <div class="feature-item">
-            <span class="feature-icon">🔒</span>
-            <span>Secure authentication</span>
-          </div>
-          <div class="feature-item">
-            <span class="feature-icon">⚡</span>
-            <span>Optimized performance</span>
-          </div>
-          <div class="feature-item">
-            <span class="feature-icon">🏢</span>
-            <span>Multi-building support</span>
-          </div>
-        </div>
       </div>
       
       <div class="demo-loading-footer">
