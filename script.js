@@ -47,21 +47,6 @@ function showDemoLoadingModal() {
           <div class="status-text">Initializing secure demo environment...</div>
           <div class="status-subtext">This may take 10-15 seconds for optimal performance</div>
         </div>
-        
-        <div class="loading-features">
-          <div class="feature-item">
-            <span class="feature-icon">🔒</span>
-            <span>Secure isolated environment</span>
-          </div>
-          <div class="feature-item">
-            <span class="feature-icon">📊</span>
-            <span>Pre-loaded sample data</span>
-          </div>
-          <div class="feature-item">
-            <span class="feature-icon">⚡</span>
-            <span>Full feature access</span>
-          </div>
-        </div>
       </div>
       
       <div class="demo-loading-footer">
@@ -125,20 +110,6 @@ function showLoginLoadingModal() {
           <div class="status-subtext">This may take 10-15 seconds for optimal performance</div>
         </div>
         
-        <div class="loading-features">
-          <div class="feature-item">
-            <span class="feature-icon">🔒</span>
-            <span>Secure authentication</span>
-          </div>
-          <div class="feature-item">
-            <span class="feature-icon">⚡</span>
-            <span>Optimized performance</span>
-          </div>
-          <div class="feature-item">
-            <span class="feature-icon">🏢</span>
-            <span>Multi-building support</span>
-          </div>
-        </div>
       </div>
       
       <div class="demo-loading-footer">
