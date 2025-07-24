@@ -1348,7 +1348,14 @@
   color: #3b82f6;
   font-weight: 600;
   font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.founder-education {
+  color: #6b7280;
+  font-size: 1rem;
   margin-bottom: 1.5rem;
+  font-style: italic;
 }
 
 .founder-bio p {
