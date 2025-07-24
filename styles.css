@@ -727,6 +727,69 @@
   font-size: 0.9rem;
 }
 
+/* CTA Section Styles */
+.cta-subtitle {
+  text-align: center;
+  font-size: 1.25rem;
+  color: #666;
+  margin-bottom: 3rem;
+}
+
+.early-adopter-benefits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.benefit-card {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+  border-left: 4px solid #3b82f6;
+}
+
+.benefit-card h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.benefit-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.benefit-card li {
+  color: #666;
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.benefit-card li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #10b981;
+  font-weight: bold;
+}
+
+.cta-action {
+  text-align: center;
+}
+
+.cta-message {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
 /* Professional Contact Section */
 .contact {
   padding: 6rem 0;
@@ -1230,5 +1293,148 @@
   .comparison-item li {
     font-size: 0.9rem;
     padding: 0.4rem 0;
+  }
+}
+
+/* About Section Styles */
+.about-section {
+  padding: 6rem 0;
+  background: #ffffff;
+}
+
+.about-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #1f2937;
+  margin-bottom: 3rem;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.founder-profile {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 3rem;
+  align-items: start;
+  background: #f8f9fa;
+  padding: 3rem;
+  border-radius: 12px;
+}
+
+.founder-image {
+  text-align: center;
+}
+
+.founder-image img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #3b82f6;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.founder-info h3 {
+  font-size: 2rem;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.founder-title {
+  color: #3b82f6;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.founder-bio p {
+  color: #4b5563;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+}
+
+.founder-quote {
+  font-style: italic;
+  border-left: 4px solid #3b82f6;
+  padding-left: 1.5rem;
+  margin-top: 2rem;
+  color: #374151;
+}
+
+.why-trust {
+  text-align: center;
+}
+
+.why-trust h3 {
+  font-size: 1.8rem;
+  color: #1f2937;
+  margin-bottom: 2rem;
+}
+
+.trust-points {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.trust-item {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+.trust-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.trust-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.trust-item h4 {
+  font-size: 1.25rem;
+  color: #1f2937;
+  margin-bottom: 0.75rem;
+}
+
+.trust-item p {
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* Responsive adjustments for About section */
+@media (max-width: 768px) {
+  .founder-profile {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .founder-image img {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .founder-info h3 {
+    margin-top: 1rem;
+  }
+  
+  .founder-quote {
+    margin-left: 0;
+    padding-left: 1rem;
+  }
+  
+  .trust-points {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
