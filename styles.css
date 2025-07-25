@@ -486,6 +486,99 @@
   background: #f8f9fa;
 }
 
+.price-per-unit {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  margin: 1.5rem 0;
+  gap: 0.5rem;
+}
+
+.price-amount {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.price-period {
+  font-size: 1.1rem;
+  color: #6b7280;
+}
+
+.price-annual {
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+.pricing-minimum {
+  text-align: center;
+  margin-top: auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.pricing-minimum p {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.popular-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #3b82f6;
+  color: white;
+  padding: 0.25rem 1.5rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.pricing-card.featured {
+  position: relative;
+  border: 2px solid #3b82f6;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+.roi-summary {
+  margin-top: 6rem;
+  text-align: center;
+  clear: both;
+  position: relative;
+  z-index: 10;
+}
+
+.roi-note {
+  color: #059669;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.pricing-footer {
+  margin: 1rem 0 2rem 0;
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.pricing-footer p {
+  margin: 0.5rem 0;
+}
+
+.btn-pricing.primary {
+  background: #3b82f6;
+  border: 2px solid #3b82f6;
+}
+
+.btn-pricing.primary:hover {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
 .pricing h2 {
   text-align: center;
   font-size: 2.5rem;
@@ -499,6 +592,7 @@
   gap: 2rem;
   max-width: 800px;
   margin: 0 auto;
+  align-items: start;
 }
 
 .pricing-grid-row2 {
@@ -524,21 +618,14 @@
   height: 100%;
 }
 
-.pricing-card:hover {
-  transform: translateY(-5px);
-}
 
-.pricing-card.featured {
-  border: 3px solid #ff6b6b;
-  transform: scale(1.05);
-}
 
 .popular-badge {
   position: absolute;
-  top: -10px;
+  top: -12px;
   left: 50%;
   transform: translateX(-50%);
-  background: #ff6b6b;
+  background: #3b82f6;
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 20px;
@@ -818,6 +905,16 @@
 
 .contact-item {
   font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.contact-item a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.contact-item a:hover {
+  text-decoration: underline;
 }
 
 .contact-cta {
