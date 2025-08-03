@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezanto - Smart Package Management Platform</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        @page {
+            size: letter;
+            margin: 0;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #1f2937;
+            background: white;
+            width: 8.5in;
+            height: 11in;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .container {
+            padding: 0.4in 0.5in;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.25in;
+            padding-bottom: 0.15in;
+            border-bottom: 3px solid #3b82f6;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+        
+        .company-name {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1f2937;
+        }
+        
+        .tagline {
+            font-size: 11px;
+            color: #6b7280;
+            font-weight: 500;
+            text-align: right;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 0.2in;
+            border-radius: 12px;
+            margin-bottom: 0.2in;
+        }
+        
+        .hero h1 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+        
+        .hero p {
+            font-size: 13px;
+            color: #374151;
+            line-height: 1.5;
+        }
+        
+        /* Value Props */
+        .value-props {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.15in;
+            margin-bottom: 0.2in;
+        }
+        
+        .value-card {
+            background: #f9fafb;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .value-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: #3b82f6;
+            margin-bottom: 4px;
+        }
+        
+        .value-label {
+            font-size: 10px;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Features Grid */
+        .features-section {
+            margin-bottom: 0.2in;
+        }
+        
+        .section-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.15in;
+        }
+        
+        .feature {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .feature-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .feature-icon::before {
+            content: '✓';
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+        }
+        
+        .feature-content h3 {
+            font-size: 12px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 3px;
+        }
+        
+        .feature-content p {
+            font-size: 10px;
+            color: #6b7280;
+            line-height: 1.4;
+        }
+        
+        /* Pricing */
+        .pricing-section {
+            margin-bottom: 0.2in;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.15in;
+        }
+        
+        .plan {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 12px;
+            position: relative;
+        }
+        
+        .plan.popular {
+            border-color: #3b82f6;
+            background: #f0f9ff;
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -10px;
+            right: 12px;
+            background: #3b82f6;
+            color: white;
+            font-size: 9px;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+        
+        .plan-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 4px;
+        }
+        
+        .plan-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: #3b82f6;
+        }
+        
+        .plan-unit {
+            font-size: 10px;
+            color: #6b7280;
+        }
+        
+        .plan-features {
+            margin-top: 8px;
+            font-size: 10px;
+            color: #374151;
+            line-height: 1.6;
+        }
+        
+        .plan-features li {
+            margin-left: 16px;
+            margin-bottom: 2px;
+        }
+        
+        /* ROI Section */
+        .roi-section {
+            background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+            color: white;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 0.2in;
+        }
+        
+        .roi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+        
+        .roi-item {
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .roi-item:last-child {
+            border-right: none;
+        }
+        
+        .roi-value {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        
+        .roi-label {
+            font-size: 10px;
+            opacity: 0.9;
+        }
+        
+        /* Contact Footer */
+        .footer {
+            margin-top: auto;
+            padding-top: 0.15in;
+            border-top: 2px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .contact-info {
+            font-size: 11px;
+            color: #374151;
+        }
+        
+        .contact-info strong {
+            color: #1f2937;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-section">
+                <img src="rezanto-logo.jpg" alt="Rezanto" class="logo">
+            </div>
+            <div class="tagline">
+                Smart Package Management for Modern Buildings<br>
+                Enterprise SaaS Platform
+            </div>
+        </div>
+        
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>Transform Your Building's Package Management</h1>
+            <p>Rezanto automates the entire package delivery lifecycle, reducing concierge workload by 2-3 hours daily and saving buildings $25,000+ annually. Our enterprise-grade platform streamlines operations from package arrival to resident pickup with automated notifications, digital tracking, and comprehensive analytics.</p>
+        </div>
+        
+        <!-- Value Propositions -->
+        <div class="value-props">
+            <div class="value-card">
+                <div class="value-number">2-3 hrs</div>
+                <div class="value-label">Daily Time Saved</div>
+            </div>
+            <div class="value-card">
+                <div class="value-number">$25K+</div>
+                <div class="value-label">Annual Savings</div>
+            </div>
+            <div class="value-card">
+                <div class="value-number">98%</div>
+                <div class="value-label">SMS Delivery Rate</div>
+            </div>
+        </div>
+        
+        <!-- Features Grid -->
+        <div class="features-section">
+            <h2 class="section-title">Enterprise Features</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon"></div>
+                    <div class="feature-content">
+                        <h3>Automated Tracking</h3>
+                        <p>Digital barcode scanning with instant resident notifications via SMS & email</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"></div>
+                    <div class="feature-content">
+                        <h3>Multi-Property Management</h3>
+                        <p>Manage multiple buildings and towers from a single dashboard</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"></div>
+                    <div class="feature-content">
+                        <h3>Business Intelligence</h3>
+                        <p>Real-time analytics, delivery trends, and operational insights</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"></div>
+                    <div class="feature-content">
+                        <h3>White-Label Options</h3>
+                        <p>Custom branding for property management companies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pricing Section -->
+        <div class="pricing-section">
+            <h2 class="section-title">Simple, Transparent Pricing</h2>
+            <div class="pricing-grid">
+                <div class="plan">
+                    <div class="plan-name">Essential</div>
+                    <div class="plan-price">$0.50<span class="plan-unit">/unit/month</span></div>
+                    <ul class="plan-features">
+                        <li>Digital package tracking</li>
+                        <li>Email notifications</li>
+                        <li>Resident registration</li>
+                        <li>Basic reporting</li>
+                        <li>Minimum: $75/month</li>
+                    </ul>
+                </div>
+                <div class="plan popular">
+                    <span class="popular-badge">MOST POPULAR</span>
+                    <div class="plan-name">Professional</div>
+                    <div class="plan-price">$0.75<span class="plan-unit">/unit/month</span></div>
+                    <ul class="plan-features">
+                        <li>Everything in Essential</li>
+                        <li>SMS notifications (98% open rate)</li>
+                        <li>Advanced analytics</li>
+                        <li>Priority support</li>
+                        <li>Custom branding</li>
+                        <li>API access (coming soon)</li>
+                        <li>Minimum: $100/month</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="margin-top: 8px; font-size: 10px; color: #6b7280; text-align: center;">
+                Custom enterprise pricing available for 1,000+ units
+            </div>
+        </div>
+        
+        <!-- ROI Section -->
+        <div class="roi-section">
+            <div class="roi-grid">
+                <div class="roi-item">
+                    <div class="roi-value">10x ROI</div>
+                    <div class="roi-label">Average Return</div>
+                </div>
+                <div class="roi-item">
+                    <div class="roi-value">2,000+</div>
+                    <div class="roi-label">Units Served</div>
+                </div>
+                <div class="roi-item">
+                    <div class="roi-value">99.9%</div>
+                    <div class="roi-label">Uptime SLA</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div class="contact-info">
+                <strong>Rezanto Technologies Inc.</strong> | Vancouver, BC, Canada<br>
+                <strong>Contact:</strong> eddie@rezanto.com | <strong>Web:</strong> rezanto.com | <strong>App:</strong> app.rezanto.com
+            </div>
+            <div class="contact-info" style="text-align: right;">
+                <strong>Ready to transform your building?</strong><br>
+                Contact us today to schedule a personalized demo
+            </div>
+        </div>
+    </div>
+</body>
+</html>
