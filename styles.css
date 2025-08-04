@@ -1078,10 +1078,13 @@
   }
   
   .hero-cta .btn-primary,
-  .hero-cta .btn-secondary {
+  .hero-cta .btn-secondary,
+  .hero-cta a.btn-secondary {
     width: 100%;
     padding: 1rem;
     font-size: 1rem;
+    text-align: center;
+    box-sizing: border-box;
   }
   
   .features-grid {
@@ -1304,6 +1307,12 @@
     padding: 1rem;
     font-size: 1rem;
     min-height: 48px;
+  }
+  
+  .hero-cta a.btn-secondary {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
   }
   
   .feature-card {
