@@ -96,6 +96,12 @@
   color: #1f2937;
 }
 
+.logo-img {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+
 .nav {
   display: flex;
   align-items: center;
@@ -118,9 +124,9 @@
 }
 
 .btn-login {
-  background: #3b82f6;
-  color: white;
-  border: 1px solid #3b82f6;
+  background: transparent;
+  color: #1f2937;
+  border: 1px solid #d1d5db;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
@@ -129,8 +135,26 @@
 }
 
 .btn-login:hover {
-  background: #2563eb;
+  color: #2563eb;
   border-color: #2563eb;
+  background: rgba(37, 99, 235, 0.05);
+}
+
+.btn-demo {
+  background: #ffffff;
+  color: #3b82f6;
+  border: 1px solid #3b82f6;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-demo:hover {
+  background: #eff6ff;
+  border-color: #2563eb;
+  color: #2563eb;
 }
 
 /* Professional Hero Section */
@@ -184,6 +208,53 @@
   display: flex;
   justify-content: center;
   gap: 1rem;
+}
+
+.hero-cta-note {
+  margin-top: 0.5rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+}
+
+.hero-secondary-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.75rem;
+  flex-wrap: wrap;
+  font-size: 0.95rem;
+}
+
+.hero-link {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.hero-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.4);
+  transition: background 0.2s ease;
+}
+
+.hero-link:hover {
+  color: #fff;
+}
+
+.hero-link:hover::after {
+  background: #fff;
 }
 
 /* Professional Buttons */
@@ -333,9 +404,25 @@
 }
 
 .feature-icon {
-  font-size: 2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 1rem;
-  color: #3b82f6;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+}
+
+.feature-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: #ffffff;
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .feature-card h3 {
@@ -510,6 +597,13 @@
   color: #6b7280;
   font-size: 0.95rem;
   margin-bottom: 2rem;
+}
+
+.plan-note {
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin: -0.5rem 0 1.25rem 0;
 }
 
 .pricing-minimum {
@@ -920,7 +1014,20 @@
 .contact-cta {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.contact-resource {
+  color: #1f2937;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.contact-resource:hover {
+  color: #2563eb;
 }
 
 /* Footer */
