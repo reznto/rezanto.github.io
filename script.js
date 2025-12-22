@@ -1,156 +1,130 @@
 // Marketing Site JavaScript
+// Optional: define a scheduling URL to route "Book Demo" clicks to Calendly/Cal.com
+window.REZANTO_SCHEDULING_URL = 'https://calendly.com/eddie-rezanto/30min';
 
 // Handle demo functionality
 function handleViewDemo() {
-  showDemoLoadingModal();
-  
-  // Ping the app first to wake it up
+  showDemoTransition();
+
+  // Pre-warm the server silently
   fetch('https://app.rezanto.com/health', { mode: 'no-cors' })
-    .catch(() => {}); // Ignore errors, just wake up the server
-  
-  // Redirect after showing loading for a moment
+    .catch(() => {});
+
+  // Redirect with brief transition
   setTimeout(() => {
     window.location.href = 'https://app.rezanto.com/login?demo=true';
-  }, 1000);
+  }, 800);
+}
+
+// Handle book demo
+function handleBookDemo() {
+  trackEvent('book_demo_click', {});
+  try {
+    const schedulingUrl = (typeof window !== 'undefined') ? window.REZANTO_SCHEDULING_URL : null;
+    if (schedulingUrl && /^https?:\/\//i.test(schedulingUrl)) {
+      window.location.href = schedulingUrl;
+      return;
+    }
+  } catch (e) {
+    // ignore
+  }
+  const subject = encodeURIComponent('Book a Rezanto Demo');
+  const body = encodeURIComponent("Hi, I'd like to book a demo for my building.\n\nCompany: ____\nUnits: ____\nBest times: ____\nNotes: ____");
+  window.location.href = `mailto:eddie@rezanto.com?subject=${subject}&body=${body}`;
 }
 
 // Handle login functionality
 function handleLogin() {
-  showLoginLoadingModal();
-  
-  // Ping the app first to wake it up
+  showLoginTransition();
+
+  // Pre-warm the server silently
   fetch('https://app.rezanto.com/health', { mode: 'no-cors' })
-    .catch(() => {}); // Ignore errors, just wake up the server
-  
-  // Redirect after showing loading for a moment
+    .catch(() => {});
+
+  // Redirect with brief transition
   setTimeout(() => {
     window.location.href = 'https://app.rezanto.com/login';
-  }, 1000);
+  }, 800);
 }
 
-function showDemoLoadingModal() {
+function showDemoTransition() {
   const modal = document.createElement('div');
-  modal.className = 'demo-loading-modal';
+  modal.className = 'demo-modal-enterprise';
   modal.innerHTML = `
-    <div class="demo-loading-content">
-      <div class="demo-loading-header">
-        <div class="rezanto-logo">Rezanto</div>
-        <h3>Launching Demo Environment</h3>
+    <div class="demo-modal-content-enterprise">
+      <div class="demo-modal-header">
+        <h2>Launching Demo</h2>
+        <p class="demo-modal-subtitle">Sunset Towers • 200 units, 3 towers</p>
       </div>
-      
-      <div class="demo-loading-body">
-        <div class="loading-animation">
-          <div class="loading-spinner"></div>
+
+      <div class="demo-modal-body">
+        <div class="demo-steps-preview">
+          <div class="demo-step-item">
+            <div class="demo-step-icon">
+              <svg viewBox="0 0 24 24">
+                <rect x="3" y="4" width="14" height="16" rx="2" ry="2"></rect>
+                <path d="M9 2h6a2 2 0 0 1 2 2v16"></path>
+                <path d="M7 12l2 2 4-4"></path>
+              </svg>
+            </div>
+            <span>Package Logging</span>
+          </div>
+          <div class="demo-step-item">
+            <div class="demo-step-icon">
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="8" r="4"></circle>
+                <path d="M6 20a6 6 0 0 1 12 0"></path>
+              </svg>
+            </div>
+            <span>Pickup Processing</span>
+          </div>
+          <div class="demo-step-item">
+            <div class="demo-step-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M3 3v18h18"></path>
+                <path d="M7 14l4-4 3 3 5-6"></path>
+              </svg>
+            </div>
+            <span>Analytics Dashboard</span>
+          </div>
         </div>
-        
-        <div class="loading-status">
-          <div class="status-text">Initializing secure demo environment...</div>
-          <div class="status-subtext">This may take 10-15 seconds for optimal performance</div>
+
+        <div class="demo-modal-footer">
+          <div class="demo-duration-badge">5-7 minute guided tour</div>
+          <div class="demo-loading-spinner"></div>
         </div>
-      </div>
-      
-      <div class="demo-loading-footer">
-        <div class="progress-bar">
-          <div class="progress-fill"></div>
-        </div>
-        <div class="progress-text">Preparing your demo experience...</div>
       </div>
     </div>
   `;
-  
+
   document.body.appendChild(modal);
-  
-  // Animate progress bar
-  const progressFill = modal.querySelector('.progress-fill');
-  const statusText = modal.querySelector('.status-text');
-  const progressText = modal.querySelector('.progress-text');
-  
-  let progress = 0;
-  const progressInterval = setInterval(() => {
-    progress += Math.random() * 15;
-    if (progress > 100) progress = 100;
-    
-    progressFill.style.width = progress + '%';
-    
-    if (progress < 30) {
-      statusText.textContent = 'Initializing secure demo environment...';
-      progressText.textContent = 'Preparing your demo experience...';
-    } else if (progress < 70) {
-      statusText.textContent = 'Loading sample data and configurations...';
-      progressText.textContent = 'Almost ready...';
-    } else {
-      statusText.textContent = 'Finalizing demo setup...';
-      progressText.textContent = 'Launching in a moment...';
-    }
-  }, 200);
-  
-  // Clean up after redirect
+
+  // Auto-remove after redirect
   setTimeout(() => {
-    clearInterval(progressInterval);
-  }, 10000);
+    if (modal.parentNode) {
+      modal.remove();
+    }
+  }, 3000);
 }
 
-function showLoginLoadingModal() {
-  const modal = document.createElement('div');
-  modal.className = 'demo-loading-modal';
-  modal.innerHTML = `
-    <div class="demo-loading-content">
-      <div class="demo-loading-header">
-        <div class="rezanto-logo">Rezanto</div>
-        <h3>Connecting to Rezanto</h3>
-      </div>
-      
-      <div class="demo-loading-body">
-        <div class="loading-animation">
-          <div class="loading-spinner"></div>
-        </div>
-        
-        <div class="loading-status">
-          <div class="status-text">Preparing your login experience...</div>
-          <div class="status-subtext">This may take 10-15 seconds for optimal performance</div>
-        </div>
-        
-      </div>
-      
-      <div class="demo-loading-footer">
-        <div class="progress-bar">
-          <div class="progress-fill"></div>
-        </div>
-        <div class="progress-text">Connecting to your account...</div>
-      </div>
+function showLoginTransition() {
+  const overlay = document.createElement('div');
+  overlay.className = 'demo-transition-overlay';
+  overlay.innerHTML = `
+    <div class="demo-transition-content">
+      <div class="rezanto-logo-large">Rezanto</div>
+      <div class="demo-transition-text">Connecting to Rezanto</div>
     </div>
   `;
-  
-  document.body.appendChild(modal);
-  
-  // Animate progress bar
-  const progressFill = modal.querySelector('.progress-fill');
-  const statusText = modal.querySelector('.status-text');
-  const progressText = modal.querySelector('.progress-text');
-  
-  let progress = 0;
-  const progressInterval = setInterval(() => {
-    progress += Math.random() * 15;
-    if (progress > 100) progress = 100;
-    
-    progressFill.style.width = progress + '%';
-    
-    if (progress < 30) {
-      statusText.textContent = 'Preparing your login experience...';
-      progressText.textContent = 'Connecting to your account...';
-    } else if (progress < 70) {
-      statusText.textContent = 'Establishing secure connection...';
-      progressText.textContent = 'Almost ready...';
-    } else {
-      statusText.textContent = 'Finalizing connection...';
-      progressText.textContent = 'Redirecting in a moment...';
-    }
-  }, 200);
-  
-  // Clean up after redirect
+
+  document.body.appendChild(overlay);
+
+  // Auto-remove after redirect
   setTimeout(() => {
-    clearInterval(progressInterval);
-  }, 10000);
+    if (overlay.parentNode) {
+      overlay.remove();
+    }
+  }, 2000);
 }
 
 // Smooth scrolling for anchor links
@@ -230,6 +204,13 @@ document.addEventListener('click', function(e) {
   if (e.target.matches('.btn-pricing')) {
     trackEvent('pricing_click', {
       plan: e.target.closest('.pricing-card').querySelector('h3').textContent.trim()
+    });
+  }
+  
+  if (e.target.matches('.btn-demo')) {
+    trackEvent('cta_click', {
+      button_type: 'demo',
+      location: (e.target.closest('header') && 'header') || (e.target.closest('.hero') && 'hero') || 'other'
     });
   }
 });
