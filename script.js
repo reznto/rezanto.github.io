@@ -90,7 +90,7 @@ function showDemoTransition() {
         </div>
 
         <div class="demo-modal-footer">
-          <div class="demo-duration-badge">5-7 minute guided tour</div>
+          <div class="demo-duration-badge">Interactive tooltip-guided walkthrough</div>
           <div class="demo-loading-spinner"></div>
         </div>
       </div>
