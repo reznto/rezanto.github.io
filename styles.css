@@ -671,10 +671,32 @@
 
 .pricing-option {
   flex: 1;
+  padding: 0;
+  background: white;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.pricing-option:hover {
+  border-color: #3b82f6;
+}
+
+.pricing-option .option-header {
+  background: #1f2937;
+  color: white;
+  padding: 0.75rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.pricing-option.sms .option-header {
+  background: #3b82f6;
+}
+
+.pricing-option .option-body {
   padding: 1.5rem 1rem;
-  background: #f8f9fa;
-  border-radius: 8px;
-  border: 1px solid #e5e7eb;
 }
 
 .pricing-option .price-per-unit {
@@ -682,7 +704,7 @@
 }
 
 .pricing-option .price-amount {
-  font-size: 2rem;
+  font-size: 2.25rem;
 }
 
 .pricing-option .pricing-minimum {
@@ -692,9 +714,10 @@
 }
 
 .option-label {
-  font-weight: 600;
-  color: #1f2937;
+  font-weight: 500;
+  color: #6b7280;
   margin: 0;
+  font-size: 0.9rem;
 }
 
 .btn-pricing.primary {
