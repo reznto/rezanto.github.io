@@ -663,6 +663,40 @@
   margin: 0.5rem 0;
 }
 
+.pricing-options {
+  display: flex;
+  gap: 1.5rem;
+  margin: 1rem 0 1.5rem 0;
+}
+
+.pricing-option {
+  flex: 1;
+  padding: 1.5rem 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.pricing-option .price-per-unit {
+  margin: 0 0 0.5rem 0;
+}
+
+.pricing-option .price-amount {
+  font-size: 2rem;
+}
+
+.pricing-option .pricing-minimum {
+  border-top: none;
+  padding-top: 0.75rem;
+  margin-top: 0;
+}
+
+.option-label {
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
 .btn-pricing.primary {
   background: #3b82f6;
   border: 2px solid #3b82f6;
