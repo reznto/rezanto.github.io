@@ -30,7 +30,7 @@ function handleBookDemo() {
   }
   const subject = encodeURIComponent('Book a Rezanto Demo');
   const body = encodeURIComponent("Hi, I'd like to book a demo for my building.\n\nCompany: ____\nUnits: ____\nBest times: ____\nNotes: ____");
-  window.location.href = `mailto:eddie@rezanto.com?subject=${subject}&body=${body}`;
+  window.location.href = `mailto:info@rezanto.com?subject=${subject}&body=${body}`;
 }
 
 // Handle login functionality
