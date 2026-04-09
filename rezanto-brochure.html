@@ -5,293 +5,298 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rezanto Datasheet</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         @page {
-            size: letter;
-            margin: 0.45in;
+            size: Letter;
+            margin: 0;
         }
 
         :root {
             --navy: #162839;
             --blue: #005ac1;
-            --blue-soft: #e9f2ff;
+            --blue-soft: #eaf2ff;
             --panel: #f4f8fc;
             --panel-2: #eef4fb;
             --ink: #122130;
-            --muted: #4b5563;
-            --line: #d6dce5;
+            --muted: #556070;
+            --line: #d7dfe8;
             --white: #ffffff;
         }
 
-        html {
+        html, body {
+            margin: 0;
+            padding: 0;
             background: #eef4fb;
+            color: var(--ink);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
             -webkit-print-color-adjust: exact;
             print-color-adjust: exact;
         }
 
         body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-            color: var(--ink);
-            background: #eef4fb;
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
+            width: 8.5in;
+            margin: 0 auto;
         }
 
         .page {
             width: 8.5in;
-            min-height: 11in;
-            margin: 0 auto 0.2in;
-            padding: 0.45in;
+            height: 11in;
+            padding: 0.42in;
             background: #eef4fb;
+            position: relative;
+            overflow: hidden;
             page-break-after: always;
+            break-after: page;
         }
 
         .page:last-child {
             page-break-after: auto;
+            break-after: auto;
         }
 
         .sheet {
-            min-height: 10.1in;
+            width: 100%;
+            height: 100%;
             background: var(--white);
             border: 1px solid #d8e0ea;
-            padding: 0.34in;
+            padding: 0.3in;
+            position: relative;
+            overflow: hidden;
         }
 
         .topbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 18px;
-            margin-bottom: 0.24in;
-            padding-bottom: 0.16in;
+            gap: 16px;
+            padding-bottom: 0.14in;
+            margin-bottom: 0.18in;
             border-bottom: 3px solid var(--blue);
         }
 
-        .logo {
-            height: 0.56in;
-            width: auto;
-            display: block;
-        }
+        .logo { height: 0.5in; width: auto; display: block; }
 
         .eyebrow {
-            font-size: 9px;
-            font-weight: 700;
-            letter-spacing: 0.14em;
+            font-size: 8px;
+            font-weight: 800;
             text-transform: uppercase;
+            letter-spacing: 0.14em;
             color: var(--blue);
-            margin-bottom: 6px;
+            margin-bottom: 5px;
         }
 
         .topbar-copy {
             text-align: right;
-            font-size: 10px;
-            line-height: 1.45;
+            font-size: 9.4px;
+            line-height: 1.4;
             color: var(--muted);
         }
 
         .hero {
             display: grid;
-            grid-template-columns: 1.5fr 0.8fr;
-            gap: 0.18in;
-            margin-bottom: 0.18in;
+            grid-template-columns: 1.5fr 0.78fr;
+            gap: 0.16in;
+            margin-bottom: 0.16in;
+        }
+
+        .hero-main,
+        .hero-side,
+        .card,
+        .business-case,
+        .contact,
+        .highlight,
+        .step,
+        .plan,
+        .feature {
+            break-inside: avoid;
+            page-break-inside: avoid;
         }
 
         .hero-main {
             background: var(--panel);
             border: 1px solid #dbe5f0;
-            padding: 0.24in;
+            padding: 0.2in;
         }
 
         .hero-main h1 {
-            font-size: 30px;
-            line-height: 1.03;
+            font-size: 26px;
+            line-height: 1.05;
             letter-spacing: -0.03em;
             color: var(--navy);
-            margin-bottom: 10px;
+            margin-bottom: 9px;
             font-weight: 800;
         }
 
         .hero-main p {
-            font-size: 12.5px;
-            line-height: 1.58;
+            font-size: 11.2px;
+            line-height: 1.52;
             color: #334155;
         }
 
         .hero-points {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 9px 14px;
-            margin-top: 14px;
+            gap: 8px 12px;
+            margin-top: 11px;
         }
 
         .hero-point {
             display: flex;
             align-items: flex-start;
-            gap: 8px;
-            font-size: 10.6px;
-            line-height: 1.42;
-            color: var(--ink);
+            gap: 7px;
+            font-size: 9.8px;
+            line-height: 1.35;
         }
 
         .check {
-            width: 18px;
-            min-width: 18px;
-            height: 18px;
+            width: 16px;
+            min-width: 16px;
+            height: 16px;
             border-radius: 50%;
             background: var(--blue);
             color: var(--white);
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 11px;
-            font-weight: 700;
+            font-size: 10px;
+            font-weight: 800;
             margin-top: 1px;
         }
 
         .hero-side {
             background: var(--navy);
             color: var(--white);
-            padding: 0.24in;
+            padding: 0.2in;
         }
 
         .hero-side h2 {
-            font-size: 13px;
-            margin-bottom: 10px;
+            font-size: 12px;
+            margin-bottom: 8px;
             font-weight: 700;
         }
 
         .stat {
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.18);
         }
 
-        .stat:last-of-type {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
+        .stat:last-of-type { border-bottom: none; padding-bottom: 0; }
 
         .stat-value {
-            font-size: 26px;
+            font-size: 22px;
             line-height: 1;
             font-weight: 800;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
 
         .stat-label {
-            font-size: 9px;
-            line-height: 1.45;
+            font-size: 8.2px;
+            line-height: 1.35;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.07em;
             color: rgba(255,255,255,0.82);
         }
 
         .hero-side-note {
-            margin-top: 14px;
-            font-size: 9.8px;
-            line-height: 1.45;
+            margin-top: 11px;
+            font-size: 8.8px;
+            line-height: 1.4;
             color: rgba(255,255,255,0.8);
         }
 
         .section-title {
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 800;
             letter-spacing: 0.14em;
             text-transform: uppercase;
             color: var(--navy);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
-        .features {
-            margin-bottom: 0.18in;
-        }
+        .features { margin-bottom: 0.16in; }
 
         .features-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
+            gap: 10px;
         }
 
         .feature {
             border: 1px solid var(--line);
             background: var(--white);
-            padding: 14px;
-            min-height: 84px;
+            padding: 11px;
+            min-height: 70px;
             display: flex;
-            gap: 10px;
+            gap: 9px;
         }
 
         .feature-number {
-            width: 30px;
-            min-width: 30px;
-            height: 30px;
+            width: 26px;
+            min-width: 26px;
+            height: 26px;
             background: var(--blue-soft);
             color: var(--blue);
-            font-size: 13px;
-            font-weight: 800;
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            font-size: 12px;
+            font-weight: 800;
         }
 
         .feature h3 {
-            font-size: 11px;
+            font-size: 10.4px;
             font-weight: 700;
-            margin-bottom: 4px;
-            color: var(--ink);
+            margin-bottom: 3px;
         }
 
         .feature p {
-            font-size: 9.9px;
-            line-height: 1.48;
+            font-size: 9.2px;
+            line-height: 1.38;
             color: var(--muted);
         }
 
         .split {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 0.16in;
+            gap: 0.14in;
         }
 
         .card {
             border: 1px solid var(--line);
             background: var(--white);
-            padding: 16px;
+            padding: 13px;
         }
 
-        .card h3 {
-            font-size: 18px;
+        .card h3, .contact h3 {
+            font-size: 15px;
             line-height: 1.15;
             color: var(--navy);
-            margin-bottom: 7px;
+            margin-bottom: 6px;
             font-weight: 800;
         }
 
-        .card-intro {
-            font-size: 10.6px;
-            line-height: 1.55;
+        .card-intro, .contact p, .business-copy {
+            font-size: 9.6px;
+            line-height: 1.45;
             color: var(--muted);
-            margin-bottom: 10px;
+        }
+
+        .included-list, .fit-list {
+            list-style: none;
         }
 
         .included-list {
-            list-style: none;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 8px 14px;
+            gap: 7px 12px;
         }
 
         .included-list li {
-            font-size: 10px;
-            line-height: 1.42;
-            color: var(--ink);
             position: relative;
-            padding-left: 14px;
+            padding-left: 12px;
+            font-size: 9.2px;
+            line-height: 1.35;
         }
 
         .included-list li::before {
@@ -303,390 +308,350 @@
             font-weight: 800;
         }
 
+        .business-case {
+            background: var(--navy);
+            color: var(--white);
+            padding: 13px;
+        }
+
+        .business-case .section-title { color: var(--white); margin-bottom: 7px; }
+        .business-copy { color: rgba(255,255,255,0.82); margin-bottom: 9px; }
+
+        .roi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 7px;
+        }
+
+        .roi-item {
+            border-right: 1px solid rgba(255,255,255,0.16);
+            padding-right: 6px;
+        }
+
+        .roi-item:last-child { border-right: none; padding-right: 0; }
+
+        .roi-value {
+            font-size: 18px;
+            line-height: 1;
+            font-weight: 800;
+            margin-bottom: 3px;
+        }
+
+        .roi-label {
+            font-size: 7.8px;
+            line-height: 1.35;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: rgba(255,255,255,0.76);
+        }
+
+        .pricing-card {
+            border: 1px solid var(--line);
+            background: var(--white);
+            padding: 13px;
+            margin-bottom: 0.14in;
+        }
+
         .plans {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
+            gap: 10px;
+            margin-top: 6px;
         }
 
-        .plan {
-            border: 1px solid var(--line);
-        }
+        .plan { border: 1px solid var(--line); }
 
         .plan-head {
-            padding: 10px 11px;
+            padding: 8px 10px;
             color: var(--white);
-            font-size: 10px;
+            font-size: 9.2px;
             font-weight: 700;
-            letter-spacing: 0.05em;
             text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .plan.email .plan-head { background: var(--navy); }
         .plan.sms .plan-head { background: var(--blue); }
 
-        .plan-body {
-            padding: 13px 11px 11px;
-            background: var(--white);
-        }
+        .plan-body { padding: 10px; }
 
         .price {
-            font-size: 24px;
+            font-size: 20px;
             line-height: 1;
             font-weight: 800;
             color: var(--navy);
-            margin-bottom: 3px;
+            margin-bottom: 2px;
         }
 
-        .unit {
-            font-size: 9.8px;
+        .unit, .minimum, .plan-copy, .pricing-notes {
+            font-size: 9px;
+            line-height: 1.35;
             color: var(--muted);
         }
 
-        .minimum {
-            margin-top: 8px;
-            font-size: 9.6px;
-            line-height: 1.4;
-            color: var(--muted);
-        }
-
-        .plan-copy {
-            margin-top: 8px;
-            font-size: 9.6px;
-            line-height: 1.46;
-            color: var(--ink);
-        }
-
-        .pricing-notes {
-            margin-top: 10px;
-            font-size: 9.2px;
-            line-height: 1.48;
-            color: var(--muted);
-        }
-
-        .business-case {
-            background: var(--navy);
-            color: var(--white);
-            padding: 16px;
-        }
-
-        .business-case .section-title {
-            color: var(--white);
-            margin-bottom: 8px;
-        }
-
-        .business-copy {
-            font-size: 10.2px;
-            line-height: 1.52;
-            color: rgba(255,255,255,0.82);
-            margin-bottom: 10px;
-        }
-
-        .roi-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-        }
-
-        .roi-item {
-            border-right: 1px solid rgba(255,255,255,0.18);
-            padding-right: 8px;
-        }
-
-        .roi-item:last-child {
-            border-right: none;
-            padding-right: 0;
-        }
-
-        .roi-value {
-            font-size: 21px;
-            line-height: 1;
-            font-weight: 800;
-            margin-bottom: 4px;
-        }
-
-        .roi-label {
-            font-size: 8.6px;
-            line-height: 1.45;
-            text-transform: uppercase;
-            letter-spacing: 0.07em;
-            color: rgba(255,255,255,0.78);
-        }
-
-        .contact {
-            background: var(--panel);
-            border: 1px solid #dbe5f0;
-            padding: 16px;
-        }
-
-        .contact h3 {
-            font-size: 17px;
-            line-height: 1.15;
-            color: var(--navy);
-            margin-bottom: 7px;
-            font-weight: 800;
-        }
-
-        .contact p {
-            font-size: 10.2px;
-            line-height: 1.5;
-            color: var(--muted);
-        }
-
-        .contact-meta {
-            margin-top: 11px;
-            padding-top: 10px;
-            border-top: 1px solid #d0dae5;
-            font-size: 9.8px;
-            line-height: 1.58;
-            color: var(--ink);
-        }
-
-        .contact-meta strong {
-            color: var(--navy);
-        }
+        .minimum, .plan-copy, .pricing-notes { margin-top: 6px; }
 
         .highlight-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-bottom: 0.18in;
+            gap: 10px;
+            margin-bottom: 0.14in;
         }
 
         .highlight {
             border: 1px solid var(--line);
             background: var(--panel-2);
-            padding: 16px 14px;
+            padding: 12px;
         }
 
         .highlight-value {
-            font-size: 24px;
+            font-size: 20px;
             line-height: 1;
             font-weight: 800;
             color: var(--navy);
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
 
         .highlight-label {
-            font-size: 10px;
-            line-height: 1.45;
+            font-size: 8.8px;
+            line-height: 1.35;
             color: var(--muted);
             text-transform: uppercase;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.06em;
         }
 
-        .process {
-            margin-bottom: 0.18in;
-        }
+        .process { margin-bottom: 0.14in; }
 
         .process-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
+            gap: 10px;
         }
 
         .step {
             border: 1px solid var(--line);
             background: var(--white);
-            padding: 14px;
+            padding: 11px;
+            min-height: 108px;
         }
 
         .step-num {
-            width: 28px;
-            height: 28px;
+            width: 24px;
+            height: 24px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             background: var(--navy);
             color: var(--white);
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 800;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .step h3 {
-            font-size: 11px;
-            line-height: 1.35;
-            margin-bottom: 5px;
-            color: var(--ink);
+            font-size: 10px;
+            line-height: 1.3;
+            margin-bottom: 4px;
         }
 
         .step p {
-            font-size: 9.8px;
-            line-height: 1.48;
+            font-size: 8.8px;
+            line-height: 1.38;
             color: var(--muted);
-        }
-
-        .fit-list {
-            list-style: none;
-            display: grid;
-            gap: 10px;
         }
 
         .fit-list li {
             border-bottom: 1px solid #e3e8ef;
-            padding-bottom: 10px;
-            font-size: 10.2px;
-            line-height: 1.5;
-            color: var(--ink);
+            padding-bottom: 8px;
+            margin-bottom: 8px;
+            font-size: 9.4px;
+            line-height: 1.4;
         }
 
         .fit-list li:last-child {
             border-bottom: none;
+            margin-bottom: 0;
             padding-bottom: 0;
         }
 
-        .fit-list strong {
-            color: var(--navy);
+        .fit-list strong { color: var(--navy); }
+
+        .contact {
+            background: var(--panel);
+            border: 1px solid #dbe5f0;
+            padding: 13px;
         }
 
-        .footer {
-            margin-top: 10px;
+        .contact-meta {
+            margin-top: 9px;
             padding-top: 8px;
-            border-top: 1px solid #dde5ee;
-            display: flex;
-            justify-content: space-between;
-            gap: 16px;
-            font-size: 8.2px;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: #667085;
+            border-top: 1px solid #d0dae5;
+            font-size: 9px;
+            line-height: 1.45;
+            color: var(--ink);
         }
+
+        .contact-meta strong { color: var(--navy); }
 
         .cta-band {
-            margin-top: 0.18in;
+            margin-top: 0.14in;
             background: var(--navy);
             color: var(--white);
-            padding: 18px;
+            padding: 14px;
         }
 
         .cta-band h3 {
-            font-size: 20px;
+            font-size: 18px;
             line-height: 1.1;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-weight: 800;
         }
 
         .cta-band p {
-            font-size: 11px;
-            line-height: 1.55;
+            font-size: 9.8px;
+            line-height: 1.45;
             color: rgba(255,255,255,0.82);
-            max-width: 5.5in;
+            max-width: 5.7in;
         }
 
         .cta-meta {
-            margin-top: 12px;
-            font-size: 10px;
-            line-height: 1.6;
+            margin-top: 10px;
+            font-size: 9px;
+            line-height: 1.45;
             color: rgba(255,255,255,0.95);
+        }
+
+        .footer {
+            position: absolute;
+            left: 0.3in;
+            right: 0.3in;
+            bottom: 0.18in;
+            padding-top: 8px;
+            border-top: 1px solid #dde5ee;
+            display: flex;
+            justify-content: space-between;
+            font-size: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #667085;
+        }
+
+        .page1-main {
+            height: calc(100% - 0.58in);
+        }
+
+        .page2-main {
+            height: calc(100% - 0.58in);
         }
     </style>
 </head>
 <body>
     <div class="page">
         <div class="sheet">
-            <div class="topbar">
-                <img src="rezanto-logo-new.png" alt="Rezanto" class="logo">
-                <div class="topbar-copy">
-                    <div class="eyebrow">Datasheet</div>
-                    Package management software for modern residential buildings
-                </div>
-            </div>
-
-            <div class="hero">
-                <div class="hero-main">
-                    <div class="eyebrow">Built for property operations</div>
-                    <h1>Cleaner package operations. Less desk chaos. Better resident communication.</h1>
-                    <p>Rezanto helps building teams log deliveries, notify residents, track pickups, and maintain a reliable audit trail without spreadsheets, sticky notes, or inbox gymnastics.</p>
-                    <div class="hero-points">
-                        <div class="hero-point"><span class="check">✓</span><span>Fast intake and pickup workflows for front desk and concierge teams</span></div>
-                        <div class="hero-point"><span class="check">✓</span><span>Email and SMS resident notifications with clear delivery records</span></div>
-                        <div class="hero-point"><span class="check">✓</span><span>Reporting and visibility for managers overseeing one or more properties</span></div>
-                        <div class="hero-point"><span class="check">✓</span><span>Simple pricing that works for individual buildings and growing portfolios</span></div>
+            <div class="page1-main">
+                <div class="topbar">
+                    <img src="rezanto-logo-new.png" alt="Rezanto" class="logo">
+                    <div class="topbar-copy">
+                        <div class="eyebrow">Datasheet</div>
+                        Package management software for modern residential buildings
                     </div>
-                </div>
-                <div class="hero-side">
-                    <h2>Why teams choose Rezanto</h2>
-                    <div class="stat">
-                        <div class="stat-value">2–3 hrs</div>
-                        <div class="stat-label">Typical daily time saved for building staff</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-value">2,000+</div>
-                        <div class="stat-label">Residential units supported</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-value">10x</div>
-                        <div class="stat-label">Average ROI from reduced manual work and fewer errors</div>
-                    </div>
-                    <div class="hero-side-note">Founder-led, practical, and built around the real workflow problems property teams deal with every day.</div>
-                </div>
-            </div>
-
-            <div class="features">
-                <div class="section-title">Core capabilities</div>
-                <div class="features-grid">
-                    <div class="feature">
-                        <div class="feature-number">1</div>
-                        <div>
-                            <h3>Package logging and tracking</h3>
-                            <p>Record arrivals quickly, assign packages to units, and keep every delivery tied to a visible status history.</p>
-                        </div>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-number">2</div>
-                        <div>
-                            <h3>Resident notifications</h3>
-                            <p>Send email or SMS notifications so residents know when packages arrive and when reminders are needed.</p>
-                        </div>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-number">3</div>
-                        <div>
-                            <h3>Pickup confirmation and audit trail</h3>
-                            <p>Track pickups with timestamps and history so staff have fewer disputes and clearer accountability.</p>
-                        </div>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-number">4</div>
-                        <div>
-                            <h3>Portfolio-ready visibility</h3>
-                            <p>Support operations across multiple buildings with reporting and workflow consistency that scales.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="split">
-                <div class="card">
-                    <div class="section-title">What’s included</div>
-                    <h3>Core workflows, without the usual chaos</h3>
-                    <div class="card-intro">Every plan includes the operational tools building teams actually need to manage deliveries and pickups cleanly.</div>
-                    <ul class="included-list">
-                        <li>Digital package logging</li>
-                        <li>Resident and unit records</li>
-                        <li>Pickup status tracking</li>
-                        <li>Audit trail and confirmations</li>
-                        <li>Operational reporting</li>
-                        <li>Email support</li>
-                    </ul>
                 </div>
 
-                <div class="business-case">
-                    <div class="section-title">Business case</div>
-                    <div class="business-copy">Rezanto is designed to reduce manual front-desk work, make resident communication more reliable, and give operators cleaner records when questions come up.</div>
-                    <div class="roi-grid">
-                        <div class="roi-item">
-                            <div class="roi-value">Faster</div>
-                            <div class="roi-label">Package intake and pickup handling</div>
+                <div class="hero">
+                    <div class="hero-main">
+                        <div class="eyebrow">Built for property operations</div>
+                        <h1>Cleaner package operations. Less desk chaos. Better resident communication.</h1>
+                        <p>Rezanto helps building teams log deliveries, notify residents, track pickups, and maintain a reliable audit trail without spreadsheets, sticky notes, or inbox gymnastics.</p>
+                        <div class="hero-points">
+                            <div class="hero-point"><span class="check">✓</span><span>Fast intake and pickup workflows for front desk and concierge teams</span></div>
+                            <div class="hero-point"><span class="check">✓</span><span>Email and SMS resident notifications with clear delivery records</span></div>
+                            <div class="hero-point"><span class="check">✓</span><span>Reporting and visibility for managers overseeing one or more properties</span></div>
+                            <div class="hero-point"><span class="check">✓</span><span>Simple pricing that works for individual buildings and growing portfolios</span></div>
                         </div>
-                        <div class="roi-item">
-                            <div class="roi-value">Cleaner</div>
-                            <div class="roi-label">Audit trails and status history</div>
+                    </div>
+                    <div class="hero-side">
+                        <h2>Why teams choose Rezanto</h2>
+                        <div class="stat">
+                            <div class="stat-value">2–3 hrs</div>
+                            <div class="stat-label">Typical daily time saved for building staff</div>
                         </div>
-                        <div class="roi-item">
-                            <div class="roi-value">Better</div>
-                            <div class="roi-label">Resident communication at scale</div>
+                        <div class="stat">
+                            <div class="stat-value">2,000+</div>
+                            <div class="stat-label">Residential units supported</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">10x</div>
+                            <div class="stat-label">Average ROI from reduced manual work and fewer errors</div>
+                        </div>
+                        <div class="hero-side-note">Founder-led, practical, and built around the real workflow problems property teams deal with every day.</div>
+                    </div>
+                </div>
+
+                <div class="features">
+                    <div class="section-title">Core capabilities</div>
+                    <div class="features-grid">
+                        <div class="feature">
+                            <div class="feature-number">1</div>
+                            <div>
+                                <h3>Package logging and tracking</h3>
+                                <p>Record arrivals quickly, assign packages to units, and keep every delivery tied to a visible status history.</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-number">2</div>
+                            <div>
+                                <h3>Resident notifications</h3>
+                                <p>Send email or SMS notifications so residents know when packages arrive and when reminders are needed.</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-number">3</div>
+                            <div>
+                                <h3>Pickup confirmation and audit trail</h3>
+                                <p>Track pickups with timestamps and history so staff have fewer disputes and clearer accountability.</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-number">4</div>
+                            <div>
+                                <h3>Portfolio-ready visibility</h3>
+                                <p>Support operations across multiple buildings with reporting and workflow consistency that scales.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="split">
+                    <div class="card">
+                        <div class="section-title">What’s included</div>
+                        <h3>Core workflows, without the usual chaos</h3>
+                        <div class="card-intro">Every plan includes the operational tools building teams actually need to manage deliveries and pickups cleanly.</div>
+                        <ul class="included-list">
+                            <li>Digital package logging</li>
+                            <li>Resident and unit records</li>
+                            <li>Pickup status tracking</li>
+                            <li>Audit trail and confirmations</li>
+                            <li>Operational reporting</li>
+                            <li>Email support</li>
+                        </ul>
+                    </div>
+
+                    <div class="business-case">
+                        <div class="section-title">Business case</div>
+                        <div class="business-copy">Rezanto is designed to reduce manual front-desk work, make resident communication more reliable, and give operators cleaner records when questions come up.</div>
+                        <div class="roi-grid">
+                            <div class="roi-item">
+                                <div class="roi-value">Faster</div>
+                                <div class="roi-label">Package intake and pickup handling</div>
+                            </div>
+                            <div class="roi-item">
+                                <div class="roi-value">Cleaner</div>
+                                <div class="roi-label">Audit trails and status history</div>
+                            </div>
+                            <div class="roi-item">
+                                <div class="roi-value">Better</div>
+                                <div class="roi-label">Resident communication at scale</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -701,17 +666,17 @@
 
     <div class="page">
         <div class="sheet">
-            <div class="topbar">
-                <img src="rezanto-logo-new.png" alt="Rezanto" class="logo">
-                <div class="topbar-copy">
-                    <div class="eyebrow">Pricing + fit</div>
-                    Designed for individual buildings and growing portfolios
+            <div class="page2-main">
+                <div class="topbar">
+                    <img src="rezanto-logo-new.png" alt="Rezanto" class="logo">
+                    <div class="topbar-copy">
+                        <div class="eyebrow">Pricing + fit</div>
+                        Designed for individual buildings and growing portfolios
+                    </div>
                 </div>
-            </div>
 
-            <div class="pricing-area" style="margin-bottom:0.18in;">
-                <div class="section-title">Simple annual pricing</div>
-                <div class="card">
+                <div class="pricing-card">
+                    <div class="section-title">Simple annual pricing</div>
                     <div class="plans">
                         <div class="plan email">
                             <div class="plan-head">Email Only</div>
@@ -734,78 +699,76 @@
                     </div>
                     <div class="pricing-notes">All prices in CAD. Billed annually. Custom pricing available for larger portfolios and multi-property operators.</div>
                 </div>
-            </div>
 
-            <div class="highlight-grid">
-                <div class="highlight">
-                    <div class="highlight-value">Low lift</div>
-                    <div class="highlight-label">Easy for staff to adopt without overcomplicating desk workflows</div>
-                </div>
-                <div class="highlight">
-                    <div class="highlight-value">Clearer</div>
-                    <div class="highlight-label">Resident notifications and pickup records are more consistent and traceable</div>
-                </div>
-                <div class="highlight">
-                    <div class="highlight-value">Scalable</div>
-                    <div class="highlight-label">Works for a single property today and larger portfolios later</div>
-                </div>
-            </div>
-
-            <div class="process">
-                <div class="section-title">How it works</div>
-                <div class="process-grid">
-                    <div class="step">
-                        <div class="step-num">1</div>
-                        <h3>Log incoming packages</h3>
-                        <p>Staff record deliveries and assign them to the right unit with a clean digital workflow.</p>
+                <div class="highlight-grid">
+                    <div class="highlight">
+                        <div class="highlight-value">Low lift</div>
+                        <div class="highlight-label">Easy for staff to adopt without overcomplicating desk workflows</div>
                     </div>
-                    <div class="step">
-                        <div class="step-num">2</div>
-                        <h3>Notify residents</h3>
-                        <p>Residents receive email or SMS alerts when their package is ready for pickup.</p>
+                    <div class="highlight">
+                        <div class="highlight-value">Clearer</div>
+                        <div class="highlight-label">Resident notifications and pickup records are more consistent and traceable</div>
                     </div>
-                    <div class="step">
-                        <div class="step-num">3</div>
-                        <h3>Track pickup status</h3>
-                        <p>Desk teams can see what is waiting, what has been collected, and what needs follow-up.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-num">4</div>
-                        <h3>Keep the record clean</h3>
-                        <p>Managers get clearer history, fewer disputes, and better visibility into operations.</p>
+                    <div class="highlight">
+                        <div class="highlight-value">Scalable</div>
+                        <div class="highlight-label">Works for a single property today and larger portfolios later</div>
                     </div>
                 </div>
-            </div>
 
-            <div class="split">
-                <div class="card">
-                    <div class="section-title">Best fit</div>
-                    <h3>Where Rezanto works best</h3>
-                    <ul class="fit-list">
-                        <li><strong>Residential buildings with front-desk package load:</strong> especially where staff are juggling resident communication manually.</li>
-                        <li><strong>Concierge and building operations teams:</strong> when consistency, speed, and visibility matter more than complicated feature bloat.</li>
-                        <li><strong>Portfolio operators:</strong> when you want a repeatable process across multiple sites instead of building-by-building improvisation.</li>
-                    </ul>
-                </div>
-
-                <div class="contact">
-                    <div class="section-title">Next step</div>
-                    <h3>Share the workflow. We’ll show the fit.</h3>
-                    <p>If your building is handling increasing delivery volume, resident follow-up, and front-desk package chaos, Rezanto is built for exactly that mess.</p>
-                    <div class="contact-meta">
-                        <strong>Rezanto Technologies Inc.</strong><br>
-                        eddie@rezanto.com<br>
-                        rezanto.com<br>
-                        app.rezanto.com
+                <div class="process">
+                    <div class="section-title">How it works</div>
+                    <div class="process-grid">
+                        <div class="step">
+                            <div class="step-num">1</div>
+                            <h3>Log incoming packages</h3>
+                            <p>Staff record deliveries and assign them to the right unit with a clean digital workflow.</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">2</div>
+                            <h3>Notify residents</h3>
+                            <p>Residents receive email or SMS alerts when their package is ready for pickup.</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">3</div>
+                            <h3>Track pickup status</h3>
+                            <p>Desk teams can see what is waiting, what has been collected, and what needs follow-up.</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">4</div>
+                            <h3>Keep the record clean</h3>
+                            <p>Managers get clearer history, fewer disputes, and better visibility into operations.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="cta-band">
-                <h3>Ready for a cleaner package workflow?</h3>
-                <p>Send us your current intake and pickup process, and we’ll show how Rezanto can simplify it without making your staff learn some absurd enterprise monster.</p>
-                <div class="cta-meta">
-                    eddie@rezanto.com &nbsp; | &nbsp; rezanto.com &nbsp; | &nbsp; Vancouver, BC, Canada
+                <div class="split">
+                    <div class="card">
+                        <div class="section-title">Best fit</div>
+                        <h3>Where Rezanto works best</h3>
+                        <ul class="fit-list">
+                            <li><strong>Residential buildings with front-desk package load:</strong> especially where staff are juggling resident communication manually.</li>
+                            <li><strong>Concierge and building operations teams:</strong> when consistency, speed, and visibility matter more than complicated feature bloat.</li>
+                            <li><strong>Portfolio operators:</strong> when you want a repeatable process across multiple sites instead of building-by-building improvisation.</li>
+                        </ul>
+                    </div>
+
+                    <div class="contact">
+                        <div class="section-title">Next step</div>
+                        <h3>Share the workflow. We’ll show the fit.</h3>
+                        <p>If your building is handling increasing delivery volume, resident follow-up, and front-desk package chaos, Rezanto is built for exactly that mess.</p>
+                        <div class="contact-meta">
+                            <strong>Rezanto Technologies Inc.</strong><br>
+                            eddie@rezanto.com<br>
+                            rezanto.com<br>
+                            app.rezanto.com
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-band">
+                    <h3>Ready for a cleaner package workflow?</h3>
+                    <p>Send us your current intake and pickup process, and we’ll show how Rezanto can simplify it without making your staff learn some absurd enterprise monster.</p>
+                    <div class="cta-meta">eddie@rezanto.com &nbsp; | &nbsp; rezanto.com &nbsp; | &nbsp; Vancouver, BC, Canada</div>
                 </div>
             </div>
 
