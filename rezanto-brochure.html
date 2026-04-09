@@ -13,52 +13,61 @@
 
         @page {
             size: letter;
-            margin: 0;
+            margin: 0.45in;
         }
 
         :root {
             --navy: #162839;
             --blue: #005ac1;
-            --blue-soft: #dfeeff;
+            --blue-soft: #e9f2ff;
+            --panel: #f4f8fc;
+            --panel-2: #eef4fb;
             --ink: #122130;
             --muted: #4b5563;
             --line: #d6dce5;
-            --panel: #f4f8fc;
             --white: #ffffff;
         }
 
-        html, body {
-            width: 8.5in;
-            min-height: 11in;
+        html {
             background: #eef4fb;
-            color: var(--ink);
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
             -webkit-print-color-adjust: exact;
             print-color-adjust: exact;
         }
 
         body {
-            margin: 0 auto;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            color: var(--ink);
+            background: #eef4fb;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
 
         .page {
             width: 8.5in;
             min-height: 11in;
+            margin: 0 auto 0.2in;
+            padding: 0.45in;
             background: #eef4fb;
-            padding: 0.42in 0.45in 0.34in;
+            page-break-after: always;
+        }
+
+        .page:last-child {
+            page-break-after: auto;
         }
 
         .sheet {
-            min-height: 10.18in;
+            min-height: 10.1in;
             background: var(--white);
             border: 1px solid #d8e0ea;
-            padding: 0.34in 0.34in 0.26in;
+            padding: 0.34in;
         }
 
         .topbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 18px;
             margin-bottom: 0.24in;
             padding-bottom: 0.16in;
             border-bottom: 3px solid var(--blue);
@@ -70,10 +79,6 @@
             display: block;
         }
 
-        .topbar-right {
-            text-align: right;
-        }
-
         .eyebrow {
             font-size: 9px;
             font-weight: 700;
@@ -83,7 +88,8 @@
             margin-bottom: 6px;
         }
 
-        .topbar-right p {
+        .topbar-copy {
+            text-align: right;
             font-size: 10px;
             line-height: 1.45;
             color: var(--muted);
@@ -91,20 +97,20 @@
 
         .hero {
             display: grid;
-            grid-template-columns: 1.48fr 0.82fr;
-            gap: 0.16in;
-            margin-bottom: 0.16in;
+            grid-template-columns: 1.5fr 0.8fr;
+            gap: 0.18in;
+            margin-bottom: 0.18in;
         }
 
         .hero-main {
             background: var(--panel);
             border: 1px solid #dbe5f0;
-            padding: 0.22in;
+            padding: 0.24in;
         }
 
         .hero-main h1 {
-            font-size: 28px;
-            line-height: 1.05;
+            font-size: 30px;
+            line-height: 1.03;
             letter-spacing: -0.03em;
             color: var(--navy);
             margin-bottom: 10px;
@@ -112,24 +118,24 @@
         }
 
         .hero-main p {
-            font-size: 12px;
-            line-height: 1.55;
+            font-size: 12.5px;
+            line-height: 1.58;
             color: #334155;
         }
 
         .hero-points {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 8px 12px;
-            margin-top: 12px;
+            gap: 9px 14px;
+            margin-top: 14px;
         }
 
         .hero-point {
             display: flex;
             align-items: flex-start;
             gap: 8px;
-            font-size: 10.2px;
-            line-height: 1.38;
+            font-size: 10.6px;
+            line-height: 1.42;
             color: var(--ink);
         }
 
@@ -137,9 +143,9 @@
             width: 18px;
             min-width: 18px;
             height: 18px;
+            border-radius: 50%;
             background: var(--blue);
             color: var(--white);
-            border-radius: 50%;
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -151,18 +157,17 @@
         .hero-side {
             background: var(--navy);
             color: var(--white);
-            padding: 0.22in;
+            padding: 0.24in;
         }
 
         .hero-side h2 {
             font-size: 13px;
-            letter-spacing: 0.01em;
             margin-bottom: 10px;
             font-weight: 700;
         }
 
         .stat {
-            padding: 9px 0;
+            padding: 10px 0;
             border-bottom: 1px solid rgba(255,255,255,0.2);
         }
 
@@ -172,7 +177,7 @@
         }
 
         .stat-value {
-            font-size: 24px;
+            font-size: 26px;
             line-height: 1;
             font-weight: 800;
             margin-bottom: 4px;
@@ -187,8 +192,8 @@
         }
 
         .hero-side-note {
-            margin-top: 12px;
-            font-size: 9.6px;
+            margin-top: 14px;
+            font-size: 9.8px;
             line-height: 1.45;
             color: rgba(255,255,255,0.8);
         }
@@ -203,28 +208,28 @@
         }
 
         .features {
-            margin-bottom: 0.14in;
+            margin-bottom: 0.18in;
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
+            gap: 12px;
         }
 
         .feature {
             border: 1px solid var(--line);
             background: var(--white);
-            padding: 12px;
-            min-height: 76px;
+            padding: 14px;
+            min-height: 84px;
             display: flex;
             gap: 10px;
         }
 
         .feature-number {
-            width: 28px;
-            min-width: 28px;
-            height: 28px;
+            width: 30px;
+            min-width: 30px;
+            height: 30px;
             background: var(--blue-soft);
             color: var(--blue);
             font-size: 13px;
@@ -242,29 +247,25 @@
         }
 
         .feature p {
-            font-size: 9.7px;
-            line-height: 1.45;
+            font-size: 9.9px;
+            line-height: 1.48;
             color: var(--muted);
         }
 
-        .pricing-area {
-            margin-bottom: 0.14in;
-        }
-
-        .pricing-grid {
+        .split {
             display: grid;
-            grid-template-columns: 1.02fr 0.98fr;
-            gap: 0.14in;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.16in;
         }
 
         .card {
             border: 1px solid var(--line);
             background: var(--white);
-            padding: 14px;
+            padding: 16px;
         }
 
         .card h3 {
-            font-size: 17px;
+            font-size: 18px;
             line-height: 1.15;
             color: var(--navy);
             margin-bottom: 7px;
@@ -272,8 +273,8 @@
         }
 
         .card-intro {
-            font-size: 10.4px;
-            line-height: 1.5;
+            font-size: 10.6px;
+            line-height: 1.55;
             color: var(--muted);
             margin-bottom: 10px;
         }
@@ -286,8 +287,8 @@
         }
 
         .included-list li {
-            font-size: 9.8px;
-            line-height: 1.4;
+            font-size: 10px;
+            line-height: 1.42;
             color: var(--ink);
             position: relative;
             padding-left: 14px;
@@ -305,7 +306,7 @@
         .plans {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
+            gap: 12px;
         }
 
         .plan {
@@ -313,7 +314,7 @@
         }
 
         .plan-head {
-            padding: 9px 10px;
+            padding: 10px 11px;
             color: var(--white);
             font-size: 10px;
             font-weight: 700;
@@ -325,12 +326,12 @@
         .plan.sms .plan-head { background: var(--blue); }
 
         .plan-body {
-            padding: 12px 10px 10px;
+            padding: 13px 11px 11px;
             background: var(--white);
         }
 
         .price {
-            font-size: 22px;
+            font-size: 24px;
             line-height: 1;
             font-weight: 800;
             color: var(--navy);
@@ -338,42 +339,35 @@
         }
 
         .unit {
-            font-size: 9.5px;
+            font-size: 9.8px;
             color: var(--muted);
         }
 
         .minimum {
-            margin-top: 7px;
-            font-size: 9.4px;
+            margin-top: 8px;
+            font-size: 9.6px;
             line-height: 1.4;
             color: var(--muted);
         }
 
         .plan-copy {
             margin-top: 8px;
-            font-size: 9.4px;
-            line-height: 1.42;
+            font-size: 9.6px;
+            line-height: 1.46;
             color: var(--ink);
         }
 
         .pricing-notes {
-            margin-top: 9px;
-            font-size: 9px;
-            line-height: 1.45;
+            margin-top: 10px;
+            font-size: 9.2px;
+            line-height: 1.48;
             color: var(--muted);
-        }
-
-        .bottom {
-            display: grid;
-            grid-template-columns: 1.08fr 0.92fr;
-            gap: 0.14in;
-            margin-top: 0.02in;
         }
 
         .business-case {
             background: var(--navy);
             color: var(--white);
-            padding: 14px;
+            padding: 16px;
         }
 
         .business-case .section-title {
@@ -382,8 +376,8 @@
         }
 
         .business-copy {
-            font-size: 10px;
-            line-height: 1.5;
+            font-size: 10.2px;
+            line-height: 1.52;
             color: rgba(255,255,255,0.82);
             margin-bottom: 10px;
         }
@@ -405,14 +399,14 @@
         }
 
         .roi-value {
-            font-size: 20px;
+            font-size: 21px;
             line-height: 1;
             font-weight: 800;
             margin-bottom: 4px;
         }
 
         .roi-label {
-            font-size: 8.4px;
+            font-size: 8.6px;
             line-height: 1.45;
             text-transform: uppercase;
             letter-spacing: 0.07em;
@@ -422,11 +416,11 @@
         .contact {
             background: var(--panel);
             border: 1px solid #dbe5f0;
-            padding: 14px;
+            padding: 16px;
         }
 
         .contact h3 {
-            font-size: 16px;
+            font-size: 17px;
             line-height: 1.15;
             color: var(--navy);
             margin-bottom: 7px;
@@ -434,7 +428,7 @@
         }
 
         .contact p {
-            font-size: 10px;
+            font-size: 10.2px;
             line-height: 1.5;
             color: var(--muted);
         }
@@ -443,12 +437,106 @@
             margin-top: 11px;
             padding-top: 10px;
             border-top: 1px solid #d0dae5;
-            font-size: 9.6px;
-            line-height: 1.55;
+            font-size: 9.8px;
+            line-height: 1.58;
             color: var(--ink);
         }
 
         .contact-meta strong {
+            color: var(--navy);
+        }
+
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 0.18in;
+        }
+
+        .highlight {
+            border: 1px solid var(--line);
+            background: var(--panel-2);
+            padding: 16px 14px;
+        }
+
+        .highlight-value {
+            font-size: 24px;
+            line-height: 1;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 5px;
+        }
+
+        .highlight-label {
+            font-size: 10px;
+            line-height: 1.45;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .process {
+            margin-bottom: 0.18in;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .step {
+            border: 1px solid var(--line);
+            background: var(--white);
+            padding: 14px;
+        }
+
+        .step-num {
+            width: 28px;
+            height: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--navy);
+            color: var(--white);
+            font-size: 12px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .step h3 {
+            font-size: 11px;
+            line-height: 1.35;
+            margin-bottom: 5px;
+            color: var(--ink);
+        }
+
+        .step p {
+            font-size: 9.8px;
+            line-height: 1.48;
+            color: var(--muted);
+        }
+
+        .fit-list {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+
+        .fit-list li {
+            border-bottom: 1px solid #e3e8ef;
+            padding-bottom: 10px;
+            font-size: 10.2px;
+            line-height: 1.5;
+            color: var(--ink);
+        }
+
+        .fit-list li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .fit-list strong {
             color: var(--navy);
         }
 
@@ -464,6 +552,34 @@
             text-transform: uppercase;
             color: #667085;
         }
+
+        .cta-band {
+            margin-top: 0.18in;
+            background: var(--navy);
+            color: var(--white);
+            padding: 18px;
+        }
+
+        .cta-band h3 {
+            font-size: 20px;
+            line-height: 1.1;
+            margin-bottom: 8px;
+            font-weight: 800;
+        }
+
+        .cta-band p {
+            font-size: 11px;
+            line-height: 1.55;
+            color: rgba(255,255,255,0.82);
+            max-width: 5.5in;
+        }
+
+        .cta-meta {
+            margin-top: 12px;
+            font-size: 10px;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.95);
+        }
     </style>
 </head>
 <body>
@@ -471,9 +587,9 @@
         <div class="sheet">
             <div class="topbar">
                 <img src="rezanto-logo-new.png" alt="Rezanto" class="logo">
-                <div class="topbar-right">
-                    <div class="eyebrow">One-Page Datasheet</div>
-                    <p>Package management software for modern residential buildings</p>
+                <div class="topbar-copy">
+                    <div class="eyebrow">Datasheet</div>
+                    Package management software for modern residential buildings
                 </div>
             </div>
 
@@ -541,49 +657,21 @@
                 </div>
             </div>
 
-            <div class="pricing-area">
-                <div class="section-title">Pricing</div>
-                <div class="pricing-grid">
-                    <div class="card">
-                        <h3>What’s included</h3>
-                        <div class="card-intro">Every plan includes the core operational workflows building teams actually need.</div>
-                        <ul class="included-list">
-                            <li>Digital package logging</li>
-                            <li>Resident and unit records</li>
-                            <li>Pickup status tracking</li>
-                            <li>Audit trail and confirmations</li>
-                            <li>Operational reporting</li>
-                            <li>Email support</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3>Simple annual pricing</h3>
-                        <div class="plans">
-                            <div class="plan email">
-                                <div class="plan-head">Email Only</div>
-                                <div class="plan-body">
-                                    <div class="price">$2.00</div>
-                                    <div class="unit">per unit / year</div>
-                                    <div class="minimum">Minimum annual fee: $400 per property</div>
-                                    <div class="plan-copy">Email notifications and core package management workflows included.</div>
-                                </div>
-                            </div>
-                            <div class="plan sms">
-                                <div class="plan-head">Email + SMS</div>
-                                <div class="plan-body">
-                                    <div class="price">$3.50</div>
-                                    <div class="unit">per unit / year</div>
-                                    <div class="minimum">Minimum annual fee: $400 per property</div>
-                                    <div class="plan-copy">Adds SMS notifications for faster resident communication and fewer missed pickups.</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pricing-notes">All prices in CAD. Billed annually. Custom pricing available for larger portfolios and multi-property operators.</div>
-                    </div>
+            <div class="split">
+                <div class="card">
+                    <div class="section-title">What’s included</div>
+                    <h3>Core workflows, without the usual chaos</h3>
+                    <div class="card-intro">Every plan includes the operational tools building teams actually need to manage deliveries and pickups cleanly.</div>
+                    <ul class="included-list">
+                        <li>Digital package logging</li>
+                        <li>Resident and unit records</li>
+                        <li>Pickup status tracking</li>
+                        <li>Audit trail and confirmations</li>
+                        <li>Operational reporting</li>
+                        <li>Email support</li>
+                    </ul>
                 </div>
-            </div>
 
-            <div class="bottom">
                 <div class="business-case">
                     <div class="section-title">Business case</div>
                     <div class="business-copy">Rezanto is designed to reduce manual front-desk work, make resident communication more reliable, and give operators cleaner records when questions come up.</div>
@@ -602,8 +690,106 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="footer">
+                <span>Rezanto package management datasheet</span>
+                <span>Page 1</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="page">
+        <div class="sheet">
+            <div class="topbar">
+                <img src="rezanto-logo-new.png" alt="Rezanto" class="logo">
+                <div class="topbar-copy">
+                    <div class="eyebrow">Pricing + fit</div>
+                    Designed for individual buildings and growing portfolios
+                </div>
+            </div>
+
+            <div class="pricing-area" style="margin-bottom:0.18in;">
+                <div class="section-title">Simple annual pricing</div>
+                <div class="card">
+                    <div class="plans">
+                        <div class="plan email">
+                            <div class="plan-head">Email Only</div>
+                            <div class="plan-body">
+                                <div class="price">$2.00</div>
+                                <div class="unit">per unit / year</div>
+                                <div class="minimum">Minimum annual fee: $400 per property</div>
+                                <div class="plan-copy">Email notifications and core package management workflows included.</div>
+                            </div>
+                        </div>
+                        <div class="plan sms">
+                            <div class="plan-head">Email + SMS</div>
+                            <div class="plan-body">
+                                <div class="price">$3.50</div>
+                                <div class="unit">per unit / year</div>
+                                <div class="minimum">Minimum annual fee: $400 per property</div>
+                                <div class="plan-copy">Adds SMS notifications for faster resident communication and fewer missed pickups.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pricing-notes">All prices in CAD. Billed annually. Custom pricing available for larger portfolios and multi-property operators.</div>
+                </div>
+            </div>
+
+            <div class="highlight-grid">
+                <div class="highlight">
+                    <div class="highlight-value">Low lift</div>
+                    <div class="highlight-label">Easy for staff to adopt without overcomplicating desk workflows</div>
+                </div>
+                <div class="highlight">
+                    <div class="highlight-value">Clearer</div>
+                    <div class="highlight-label">Resident notifications and pickup records are more consistent and traceable</div>
+                </div>
+                <div class="highlight">
+                    <div class="highlight-value">Scalable</div>
+                    <div class="highlight-label">Works for a single property today and larger portfolios later</div>
+                </div>
+            </div>
+
+            <div class="process">
+                <div class="section-title">How it works</div>
+                <div class="process-grid">
+                    <div class="step">
+                        <div class="step-num">1</div>
+                        <h3>Log incoming packages</h3>
+                        <p>Staff record deliveries and assign them to the right unit with a clean digital workflow.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">2</div>
+                        <h3>Notify residents</h3>
+                        <p>Residents receive email or SMS alerts when their package is ready for pickup.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">3</div>
+                        <h3>Track pickup status</h3>
+                        <p>Desk teams can see what is waiting, what has been collected, and what needs follow-up.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">4</div>
+                        <h3>Keep the record clean</h3>
+                        <p>Managers get clearer history, fewer disputes, and better visibility into operations.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="split">
+                <div class="card">
+                    <div class="section-title">Best fit</div>
+                    <h3>Where Rezanto works best</h3>
+                    <ul class="fit-list">
+                        <li><strong>Residential buildings with front-desk package load:</strong> especially where staff are juggling resident communication manually.</li>
+                        <li><strong>Concierge and building operations teams:</strong> when consistency, speed, and visibility matter more than complicated feature bloat.</li>
+                        <li><strong>Portfolio operators:</strong> when you want a repeatable process across multiple sites instead of building-by-building improvisation.</li>
+                    </ul>
+                </div>
+
                 <div class="contact">
-                    <div class="eyebrow">Next step</div>
+                    <div class="section-title">Next step</div>
                     <h3>Share the workflow. We’ll show the fit.</h3>
                     <p>If your building is handling increasing delivery volume, resident follow-up, and front-desk package chaos, Rezanto is built for exactly that mess.</p>
                     <div class="contact-meta">
@@ -615,9 +801,17 @@
                 </div>
             </div>
 
+            <div class="cta-band">
+                <h3>Ready for a cleaner package workflow?</h3>
+                <p>Send us your current intake and pickup process, and we’ll show how Rezanto can simplify it without making your staff learn some absurd enterprise monster.</p>
+                <div class="cta-meta">
+                    eddie@rezanto.com &nbsp; | &nbsp; rezanto.com &nbsp; | &nbsp; Vancouver, BC, Canada
+                </div>
+            </div>
+
             <div class="footer">
                 <span>Rezanto package management datasheet</span>
-                <span>Updated April 2026</span>
+                <span>Page 2</span>
             </div>
         </div>
     </div>
