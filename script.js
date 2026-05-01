@@ -1,6 +1,4 @@
 // Marketing Site JavaScript
-// Optional: define a scheduling URL to route "Book Demo" clicks to Calendly/Cal.com
-window.REZANTO_SCHEDULING_URL = 'https://calendly.com/eddie-rezanto/30min';
 
 // Handle demo functionality
 function handleViewDemo() {
@@ -19,15 +17,6 @@ function handleViewDemo() {
 // Handle book demo
 function handleBookDemo() {
   trackEvent('book_demo_click', {});
-  try {
-    const schedulingUrl = (typeof window !== 'undefined') ? window.REZANTO_SCHEDULING_URL : null;
-    if (schedulingUrl && /^https?:\/\//i.test(schedulingUrl)) {
-      window.location.href = schedulingUrl;
-      return;
-    }
-  } catch (e) {
-    // ignore
-  }
   const subject = encodeURIComponent('Book a Rezanto Demo');
   const body = encodeURIComponent("Hi, I'd like to book a demo for my building.\n\nCompany: ____\nUnits: ____\nBest times: ____\nNotes: ____");
   window.location.href = `mailto:info@rezanto.com?subject=${subject}&body=${body}`;

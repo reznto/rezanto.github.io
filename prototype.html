@@ -483,8 +483,6 @@
 
 <script>
 // === Rezanto Marketing JS (inline for prototype) ===
-window.REZANTO_SCHEDULING_URL = 'https://calendly.com/eddie-rezanto/30min';
-
 function handleViewDemo() {
     showDemoTransition();
     fetch('https://app.rezanto.com/health', { mode: 'no-cors' }).catch(() => {});
@@ -493,13 +491,6 @@ function handleViewDemo() {
 
 function handleBookDemo() {
     trackEvent('book_demo_click', {});
-    try {
-        const schedulingUrl = window.REZANTO_SCHEDULING_URL;
-        if (schedulingUrl && /^https?:\/\//i.test(schedulingUrl)) {
-            window.location.href = schedulingUrl;
-            return;
-        }
-    } catch (e) {}
     const subject = encodeURIComponent('Book a Rezanto Demo');
     const body = encodeURIComponent("Hi, I'd like to book a demo for my building.\n\nCompany: ____\nUnits: ____\nBest times: ____\nNotes: ____");
     window.location.href = `mailto:info@rezanto.com?subject=${subject}&body=${body}`;
