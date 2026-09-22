@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<link rel="icon" href="favicon.png" type="image/png">
+<title>Tesla OAuth callback</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #0b0c0e;
+    color: #e6e6e6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 24px;
+  }
+  .card {
+    max-width: 560px;
+    width: 100%;
+  }
+  h1 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 16px;
+  }
+  .row {
+    margin-bottom: 12px;
+  }
+  label {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #9a9a9a;
+    margin-bottom: 4px;
+  }
+  .value {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  code {
+    flex: 1;
+    display: block;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 13px;
+    background: #17181b;
+    border: 1px solid #2a2b2e;
+    border-radius: 6px;
+    padding: 10px 12px;
+    overflow-wrap: anywhere;
+  }
+  button {
+    font-size: 12px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #2a2b2e;
+    background: #1c1d20;
+    color: #e6e6e6;
+    cursor: pointer;
+  }
+  button:hover { background: #232427; }
+  .hint {
+    font-size: 13px;
+    color: #9a9a9a;
+    margin-top: 16px;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>Tesla authorization complete</h1>
+    <div class="row">
+      <label>code</label>
+      <div class="value">
+        <code id="code">—</code>
+        <button type="button" data-copy="code">Copy</button>
+      </div>
+    </div>
+    <div class="row">
+      <label>state</label>
+      <div class="value">
+        <code id="state">—</code>
+        <button type="button" data-copy="state">Copy</button>
+      </div>
+    </div>
+    <p class="hint" id="hint">Copy the <code>code</code> value above and paste it back into the app to finish connecting.</p>
+  </div>
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var code = params.get("code") || "";
+      var state = params.get("state") || "";
+      var error = params.get("error") || params.get("error_description") || "";
+
+      document.getElementById("code").textContent = code || "(none)";
+      document.getElementById("state").textContent = state || "(none)";
+
+      if (error) {
+        document.getElementById("hint").textContent =
+          "Tesla returned an error instead of a code: " + error;
+      } else if (!code) {
+        document.getElementById("hint").textContent =
+          "No code was found in this page's URL. Make sure you followed a link from the app's Connect flow.";
+      }
+
+      document.querySelectorAll("button[data-copy]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var text = document.getElementById(btn.getAttribute("data-copy")).textContent;
+          navigator.clipboard.writeText(text).then(function () {
+            var original = btn.textContent;
+            btn.textContent = "Copied";
+            setTimeout(function () { btn.textContent = original; }, 1200);
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
