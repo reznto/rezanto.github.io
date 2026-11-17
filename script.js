@@ -1,19 +1,5 @@
 // Marketing Site JavaScript
 
-// Handle demo functionality
-function handleViewDemo() {
-  showDemoTransition();
-
-  // Pre-warm the server silently
-  fetch('https://app.rezanto.com/health', { mode: 'no-cors' })
-    .catch(() => {});
-
-  // Redirect with brief transition
-  setTimeout(() => {
-    window.location.href = 'https://app.rezanto.com/login?demo=true';
-  }, 800);
-}
-
 // Handle book demo
 function handleBookDemo() {
   trackEvent('book_demo_click', {});
@@ -34,66 +20,6 @@ function handleLogin() {
   setTimeout(() => {
     window.location.href = 'https://app.rezanto.com/login';
   }, 800);
-}
-
-function showDemoTransition() {
-  const modal = document.createElement('div');
-  modal.className = 'demo-modal-enterprise';
-  modal.innerHTML = `
-    <div class="demo-modal-content-enterprise">
-      <div class="demo-modal-header">
-        <h2>Launching Demo</h2>
-        <p class="demo-modal-subtitle">Sunset Towers • 200 units, 3 towers</p>
-      </div>
-
-      <div class="demo-modal-body">
-        <div class="demo-steps-preview">
-          <div class="demo-step-item">
-            <div class="demo-step-icon">
-              <svg viewBox="0 0 24 24">
-                <rect x="3" y="4" width="14" height="16" rx="2" ry="2"></rect>
-                <path d="M9 2h6a2 2 0 0 1 2 2v16"></path>
-                <path d="M7 12l2 2 4-4"></path>
-              </svg>
-            </div>
-            <span>Package Logging</span>
-          </div>
-          <div class="demo-step-item">
-            <div class="demo-step-icon">
-              <svg viewBox="0 0 24 24">
-                <circle cx="12" cy="8" r="4"></circle>
-                <path d="M6 20a6 6 0 0 1 12 0"></path>
-              </svg>
-            </div>
-            <span>Pickup Processing</span>
-          </div>
-          <div class="demo-step-item">
-            <div class="demo-step-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M3 3v18h18"></path>
-                <path d="M7 14l4-4 3 3 5-6"></path>
-              </svg>
-            </div>
-            <span>Analytics Dashboard</span>
-          </div>
-        </div>
-
-        <div class="demo-modal-footer">
-          <div class="demo-duration-badge">Interactive tooltip-guided walkthrough</div>
-          <div class="demo-loading-spinner"></div>
-        </div>
-      </div>
-    </div>
-  `;
-
-  document.body.appendChild(modal);
-
-  // Auto-remove after redirect
-  setTimeout(() => {
-    if (modal.parentNode) {
-      modal.remove();
-    }
-  }, 3000);
 }
 
 function showLoginTransition() {

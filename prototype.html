@@ -142,7 +142,7 @@
             <a class="text-on-surface-variant hover:text-primary transition-colors text-base font-medium" href="#about">About</a>
             <a class="text-on-surface-variant hover:text-primary transition-colors text-base font-medium" href="#pricing">Pricing</a>
             <a class="text-on-surface-variant hover:text-primary transition-colors text-base font-medium" href="#contact">Contact</a>
-            <a class="text-secondary hover:text-on-secondary-container transition-colors text-base font-semibold cursor-pointer" onclick="handleViewDemo()">Demo</a>
+            <a class="text-secondary hover:text-on-secondary-container transition-colors text-base font-semibold cursor-pointer" onclick="window.location.href='packages-demo.html'">Demo</a>
         </div>
         <div class="hidden md:flex items-center gap-4">
             <button onclick="handleLogin()" class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-7 py-2.5 rounded-md font-medium hover:scale-[1.02] active:scale-95 transition-all duration-200 shadow-lg shadow-primary/10 text-base">
@@ -155,7 +155,7 @@
             <a class="text-on-surface-variant hover:text-primary transition-colors font-medium" href="#about">About</a>
             <a class="text-on-surface-variant hover:text-primary transition-colors font-medium" href="#pricing">Pricing</a>
             <a class="text-on-surface-variant hover:text-primary transition-colors font-medium" href="#contact">Contact</a>
-            <a class="text-secondary hover:text-on-secondary-container transition-colors font-semibold cursor-pointer" onclick="handleViewDemo()">Demo</a>
+            <a class="text-secondary hover:text-on-secondary-container transition-colors font-semibold cursor-pointer" onclick="window.location.href='packages-demo.html'">Demo</a>
             <button onclick="handleLogin()" class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-7 py-2.5 rounded-md font-medium mt-2 text-sm w-fit">
                 Login
             </button>
@@ -190,7 +190,7 @@
                 </div>
             </div>
             <div class="flex flex-wrap gap-4">
-                <button onclick="handleViewDemo()" class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-10 py-4 rounded-md font-semibold hover:scale-[1.02] active:scale-95 transition-all duration-200 shadow-xl shadow-primary/20" aria-label="View interactive demo">
+                <button onclick="window.location.href='packages-demo.html'" class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-10 py-4 rounded-md font-semibold hover:scale-[1.02] active:scale-95 transition-all duration-200 shadow-xl shadow-primary/20" aria-label="View interactive demo">
                     View Demo
                 </button>
                 <button onclick="handleBookDemo()" class="flex items-center gap-2 px-10 py-4 rounded-md font-semibold text-primary hover:bg-surface-container transition-colors group">
@@ -223,7 +223,7 @@
                 <h2 class="font-headline text-3xl md:text-5xl font-bold tracking-tight text-primary">Enterprise-Grade Package Management Solution</h2>
             </div>
             <div class="pb-2">
-                <a onclick="handleViewDemo()" class="text-on-surface-variant hover:text-primary font-medium flex items-center gap-2 border-b-2 border-outline-variant/30 pb-1 transition-all cursor-pointer">
+                <a onclick="window.location.href='packages-demo.html'" class="text-on-surface-variant hover:text-primary font-medium flex items-center gap-2 border-b-2 border-outline-variant/30 pb-1 transition-all cursor-pointer">
                     Try the demo <span class="material-symbols-outlined text-sm">north_east</span>
                 </a>
             </div>
@@ -455,7 +455,7 @@
                 <div class="flex flex-col gap-3">
                     <a href="#features" class="text-on-primary-container hover:text-white transition-colors text-sm">Features</a>
                     <a href="#pricing" class="text-on-primary-container hover:text-white transition-colors text-sm">Pricing</a>
-                    <a onclick="handleViewDemo()" class="text-on-primary-container hover:text-white transition-colors text-sm cursor-pointer">Demo</a>
+                    <a onclick="window.location.href='packages-demo.html'" class="text-on-primary-container hover:text-white transition-colors text-sm cursor-pointer">Demo</a>
                 </div>
             </div>
             <div>
@@ -483,12 +483,6 @@
 
 <script>
 // === Rezanto Marketing JS (inline for prototype) ===
-function handleViewDemo() {
-    showDemoTransition();
-    fetch('https://app.rezanto.com/health', { mode: 'no-cors' }).catch(() => {});
-    setTimeout(() => { window.location.href = 'https://app.rezanto.com/login?demo=true'; }, 800);
-}
-
 function handleBookDemo() {
     trackEvent('book_demo_click', {});
     const subject = encodeURIComponent('Book a Rezanto Demo');
@@ -500,47 +494,6 @@ function handleLogin() {
     showLoginTransition();
     fetch('https://app.rezanto.com/health', { mode: 'no-cors' }).catch(() => {});
     setTimeout(() => { window.location.href = 'https://app.rezanto.com/login'; }, 800);
-}
-
-function showDemoTransition() {
-    const modal = document.createElement('div');
-    modal.className = 'demo-modal-enterprise';
-    modal.innerHTML = `
-        <div class="demo-modal-content-enterprise">
-            <div class="demo-modal-header">
-                <h2>Launching Demo</h2>
-                <p class="demo-modal-subtitle">Sunset Towers &bull; 200 units, 3 towers</p>
-            </div>
-            <div class="demo-modal-body">
-                <div class="demo-steps-preview">
-                    <div class="demo-step-item">
-                        <div class="demo-step-icon">
-                            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="14" height="16" rx="2" ry="2"></rect><path d="M9 2h6a2 2 0 0 1 2 2v16"></path><path d="M7 12l2 2 4-4"></path></svg>
-                        </div>
-                        <span>Package Logging</span>
-                    </div>
-                    <div class="demo-step-item">
-                        <div class="demo-step-icon">
-                            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"></circle><path d="M6 20a6 6 0 0 1 12 0"></path></svg>
-                        </div>
-                        <span>Pickup Processing</span>
-                    </div>
-                    <div class="demo-step-item">
-                        <div class="demo-step-icon">
-                            <svg viewBox="0 0 24 24"><path d="M3 3v18h18"></path><path d="M7 14l4-4 3 3 5-6"></path></svg>
-                        </div>
-                        <span>Analytics Dashboard</span>
-                    </div>
-                </div>
-                <div class="demo-modal-footer">
-                    <div class="demo-duration-badge">Interactive tooltip-guided walkthrough</div>
-                    <div class="demo-loading-spinner"></div>
-                </div>
-            </div>
-        </div>
-    `;
-    document.body.appendChild(modal);
-    setTimeout(() => { if (modal.parentNode) modal.remove(); }, 3000);
 }
 
 function showLoginTransition() {
