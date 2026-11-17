@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Rezanto - Package Management and Visitor Parking for Modern Buildings</title>
-<meta name="description" content="Package notifications and resident-issued visitor parking for residential buildings. Less work at the front desk, no hardware, no apps to install.">
+<title>Rezanto - Packages and Visitor Parking for Residential Buildings</title>
+<meta name="description" content="One platform for the residential front desk: package tracking and resident-issued visitor parking. No hardware, no apps to install.">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -125,6 +125,7 @@
     }
 </style>
 </head>
+</head>
 <body class="bg-surface text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container">
 
 <!-- Nav -->
@@ -133,32 +134,31 @@
         <a href="index.html" aria-label="Rezanto home">
             <img src="brand/rezanto-logo.png" alt="Rezanto" class="h-10 md:h-11 w-auto">
         </a>
-        <!-- Mobile toggle -->
         <button class="md:hidden text-2xl text-primary p-2" id="navToggle" aria-label="Toggle navigation">
-            <span class="material-symbols-outlined">menu</span>
+            <span class="material-symbols-outlined" aria-hidden="true">menu</span>
         </button>
-        <!-- Desktop Links -->
         <div class="hidden md:flex items-center gap-8">
-            <a class="text-on-surface-variant hover:text-primary transition-colors text-base font-medium" href="#features">Features</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors text-base font-medium" href="#platform">Platform</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors text-base font-medium" href="#packages">Packages</a>
             <a class="text-on-surface-variant hover:text-primary transition-colors text-base font-medium" href="#parking">Parking</a>
-            <a class="text-on-surface-variant hover:text-primary transition-colors text-base font-medium" href="#about">About</a>
             <a class="text-on-surface-variant hover:text-primary transition-colors text-base font-medium" href="#pricing">Pricing</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors text-base font-medium" href="#about">About</a>
             <a class="text-on-surface-variant hover:text-primary transition-colors text-base font-medium" href="#contact">Contact</a>
-            <a class="text-secondary hover:text-on-secondary-container transition-colors text-base font-semibold cursor-pointer" onclick="handleViewDemo()">Demo</a>
+            <a class="text-secondary hover:text-on-secondary-container transition-colors text-base font-semibold" href="#demos">Demos</a>
         </div>
         <div class="hidden md:flex items-center gap-4">
             <button onclick="handleLogin()" class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-7 py-2.5 rounded-md font-medium hover:scale-[1.02] active:scale-95 transition-all duration-200 shadow-lg shadow-primary/10 text-base">
                 Login
             </button>
         </div>
-        <!-- Mobile nav -->
         <div class="nav-mobile md:hidden" id="navMobile">
-            <a class="text-on-surface-variant hover:text-primary transition-colors font-medium" href="#features">Features</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors font-medium" href="#platform">Platform</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors font-medium" href="#packages">Packages</a>
             <a class="text-on-surface-variant hover:text-primary transition-colors font-medium" href="#parking">Parking</a>
-            <a class="text-on-surface-variant hover:text-primary transition-colors font-medium" href="#about">About</a>
             <a class="text-on-surface-variant hover:text-primary transition-colors font-medium" href="#pricing">Pricing</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors font-medium" href="#about">About</a>
             <a class="text-on-surface-variant hover:text-primary transition-colors font-medium" href="#contact">Contact</a>
-            <a class="text-secondary hover:text-on-secondary-container transition-colors font-semibold cursor-pointer" onclick="handleViewDemo()">Demo</a>
+            <a class="text-secondary hover:text-on-secondary-container transition-colors font-semibold" href="#demos">Demos</a>
             <button onclick="handleLogin()" class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-7 py-2.5 rounded-md font-medium mt-2 text-sm w-fit">
                 Login
             </button>
@@ -175,125 +175,193 @@
     </div>
     <div class="max-w-7xl mx-auto px-6 md:px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
         <div class="lg:col-span-7 flex flex-col justify-center">
-            <span class="font-label text-sm uppercase tracking-[0.2em] text-secondary mb-6 block font-bold">Packages &amp; Visitor Parking</span>
+            <span class="font-label text-sm uppercase tracking-[0.2em] text-secondary mb-6 block font-bold">Front-desk platform for residential buildings</span>
             <h1 class="font-headline text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter leading-[1.1] text-primary mb-8">
-                Packages and Visitor Parking for <span class="text-secondary">Modern Buildings.</span>
+                One platform for the front desk. <span class="text-secondary">Packages and visitor parking.</span>
             </h1>
             <p class="text-lg md:text-xl text-on-surface-variant max-w-xl leading-relaxed mb-10">
-                Give your front desk hours back every day. Over 220,000 parcels handled across five years in production &mdash;
-                and now residents can invite their own guests to park, with no visitor sign-up and no desk queue.
+                Rezanto runs the two jobs that pile up at a residential front desk. Log and track every parcel, and let residents invite their own parking guests. Start with one module and add the other when you're ready.
             </p>
-            <div class="flex items-center gap-8 mb-8 text-on-surface-variant">
+            <div class="flex flex-wrap items-center gap-x-8 gap-y-3 mb-8 text-on-surface-variant">
                 <div class="flex items-center gap-2">
-                    <span class="material-symbols-outlined text-secondary">verified</span>
+                    <span class="material-symbols-outlined text-secondary" aria-hidden="true">verified</span>
                     <span class="text-sm">No hardware required</span>
                 </div>
                 <div class="flex items-center gap-2">
-                    <span class="material-symbols-outlined text-secondary">schedule</span>
-                    <span class="text-sm">24/7 Automated</span>
+                    <span class="material-symbols-outlined text-secondary" aria-hidden="true">schedule</span>
+                    <span class="text-sm">No apps to install</span>
                 </div>
             </div>
             <div class="flex flex-wrap gap-4">
-                <button onclick="handleViewDemo()" class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-10 py-4 rounded-md font-semibold hover:scale-[1.02] active:scale-95 transition-all duration-200 shadow-xl shadow-primary/20" aria-label="View interactive demo">
-                    View Demo
-                </button>
+                <a href="#demos" class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-10 py-4 rounded-md font-semibold hover:scale-[1.02] active:scale-95 transition-all duration-200 shadow-xl shadow-primary/20">
+                    See the demos
+                </a>
                 <button onclick="handleBookDemo()" class="flex items-center gap-2 px-10 py-4 rounded-md font-semibold text-primary hover:bg-surface-container transition-colors group">
                     Schedule a Demo
-                    <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+                    <span class="material-symbols-outlined transition-transform group-hover:translate-x-1" aria-hidden="true">arrow_forward</span>
                 </button>
             </div>
-            <p class="text-xs text-on-surface-variant/60 mt-4">Interactive self-guided demo &mdash; Experience a day at Sunset Towers</p>
         </div>
-        <div class="lg:col-span-5 relative hidden lg:block">
-            <div class="aspect-[4/5] bg-surface-container-lowest rounded-xl shadow-2xl overflow-hidden relative group">
-                <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" alt="Modern residential building lobby with package area" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9f7K0FDo74KlAs1uzseEGR3vugV05TAA9OUPhv6H803kMInp72FheVFA9bhgUW1eGAjupCLAbKdvUVpT7YB-MsReszGmrVpeEztBII1E_1Lo4PE80CrpLqeB3DwjUnTkiD1FqgVScmhqb96wSQsaH8KzB15AxFewhwsC5q3SNSvGDx1FTXNaaj_5P7V0MwxSsT6CrMC0osJGfOp-GMGzCUANNt4riiKgJtnIKB_SMRxT9KO6vHvFf5vn5EDeoaiHe0AeGX33CCjY"/>
-                <div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
+        <div class="lg:col-span-5 hidden lg:flex flex-col justify-center gap-6">
+            <a href="#packages" class="block bg-white rounded-xl shadow-2xl p-8 hover:-translate-y-1 transition-transform">
+                <div class="w-14 h-14 bg-secondary-container/10 rounded-lg flex items-center justify-center mb-6 text-secondary"><span class="material-symbols-outlined text-3xl" aria-hidden="true">inventory_2</span></div>
+                <h2 class="font-headline text-2xl font-bold text-primary mb-2">Package Management</h2>
+                <p class="text-on-surface-variant mb-4">Log, notify, pick up &mdash; in seconds.</p>
+                <p class="text-xs font-label uppercase tracking-widest text-secondary font-bold">220,000+ parcels handled in production</p>
+            </a>
+            <a href="#parking" class="block bg-white rounded-xl shadow-2xl p-8 hover:-translate-y-1 transition-transform">
+                <div class="w-14 h-14 bg-secondary-container/10 rounded-lg flex items-center justify-center mb-6 text-secondary"><span class="material-symbols-outlined text-3xl" aria-hidden="true">local_parking</span></div>
+                <h2 class="font-headline text-2xl font-bold text-primary mb-2">Visitor Parking</h2>
+                <p class="text-on-surface-variant mb-4">Residents invite. The desk just checks.</p>
+                <p class="text-xs font-label uppercase tracking-widest text-secondary font-bold">No visitor sign-up, no approvals queue</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Platform Section -->
+<section id="platform" class="py-24 md:py-32 bg-surface">
+    <div class="max-w-7xl mx-auto px-6 md:px-8">
+        <div class="max-w-3xl mb-16 md:mb-20">
+            <span class="font-label text-sm uppercase tracking-[0.2em] text-secondary mb-4 block font-bold">Platform</span>
+            <h2 class="font-headline text-3xl md:text-5xl font-bold tracking-tight text-primary mb-6">Two modules. One platform.</h2>
+            <p class="text-lg text-on-surface-variant leading-relaxed">Each module stands on its own. Run them together and residents register once, the desk works from one login, and managers see both in one place.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-surface-container-lowest p-10 rounded-xl flex flex-col border border-outline-variant/20">
+                <div class="w-14 h-14 bg-secondary-container/10 rounded-lg flex items-center justify-center mb-6 text-secondary"><span class="material-symbols-outlined text-3xl" aria-hidden="true">inventory_2</span></div>
+                <h3 class="font-headline text-2xl font-bold text-primary mb-3">Package Management</h3>
+                <p class="text-on-surface-variant leading-relaxed mb-6">Log deliveries in seconds and notify residents the moment a parcel arrives.</p>
+                <ul class="space-y-3 mb-8"><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary mt-0.5" style="font-size: 20px;" aria-hidden="true">check_circle</span><span class="text-on-surface-variant">AI label scanning from a phone</span></li><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary mt-0.5" style="font-size: 20px;" aria-hidden="true">check_circle</span><span class="text-on-surface-variant">Email and SMS notifications</span></li><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary mt-0.5" style="font-size: 20px;" aria-hidden="true">check_circle</span><span class="text-on-surface-variant">Pickup confirmations and audit trail</span></li><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary mt-0.5" style="font-size: 20px;" aria-hidden="true">check_circle</span><span class="text-on-surface-variant">Per-unit limits with overage billing</span></li></ul>
+                <div class="mt-auto pt-6 border-t border-outline/20 flex flex-wrap gap-x-6 gap-y-2">
+                    <a href="#packages" class="text-secondary hover:text-on-secondary-container font-medium text-sm">How it works</a>
+                    <a href="#" onclick="handleViewDemo(); return false;" class="text-secondary hover:text-on-secondary-container font-medium text-sm">Try the demo</a>
+                    <a href="rezanto-brochure.pdf" download class="text-secondary hover:text-on-secondary-container font-medium text-sm">Datasheet (PDF)</a>
+                </div>
             </div>
-            <!-- Floating stat card -->
-            <div class="absolute -bottom-8 -left-12 bg-white p-8 shadow-2xl rounded-lg max-w-[240px]">
-                <p class="font-headline text-3xl font-bold text-primary mb-1">220,000+</p>
-                <p class="text-xs font-label uppercase tracking-widest text-on-surface-variant">Parcels Handled</p>
+            <div class="bg-surface-container-lowest p-10 rounded-xl flex flex-col border border-outline-variant/20">
+                <div class="w-14 h-14 bg-secondary-container/10 rounded-lg flex items-center justify-center mb-6 text-secondary"><span class="material-symbols-outlined text-3xl" aria-hidden="true">local_parking</span></div>
+                <h3 class="font-headline text-2xl font-bold text-primary mb-3">Visitor Parking</h3>
+                <p class="text-on-surface-variant leading-relaxed mb-6">Residents invite their own guests; guests get a pass on their phone.</p>
+                <ul class="space-y-3 mb-8"><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary mt-0.5" style="font-size: 20px;" aria-hidden="true">check_circle</span><span class="text-on-surface-variant">Resident sign-in by email, no app</span></li><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary mt-0.5" style="font-size: 20px;" aria-hidden="true">check_circle</span><span class="text-on-surface-variant">Digital guest pass with plate and reference</span></li><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary mt-0.5" style="font-size: 20px;" aria-hidden="true">check_circle</span><span class="text-on-surface-variant">Look up any car by plate, car, unit or reference</span></li><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary mt-0.5" style="font-size: 20px;" aria-hidden="true">check_circle</span><span class="text-on-surface-variant">Your rules: nights per month, one at a time, or none</span></li></ul>
+                <div class="mt-auto pt-6 border-t border-outline/20 flex flex-wrap gap-x-6 gap-y-2">
+                    <a href="#parking" class="text-secondary hover:text-on-secondary-container font-medium text-sm">How it works</a>
+                    <a href="parking-demo.html" class="text-secondary hover:text-on-secondary-container font-medium text-sm">Try the demo</a>
+                    <a href="parking-datasheet.pdf" download class="text-secondary hover:text-on-secondary-container font-medium text-sm">Datasheet (PDF)</a>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Features Section -->
-<section id="features" class="py-24 md:py-32 bg-surface">
+<!-- Package Management Section -->
+<section id="packages" class="py-24 md:py-32 bg-surface-container-low">
     <div class="max-w-7xl mx-auto px-6 md:px-8">
         <div class="flex flex-col md:flex-row justify-between items-end mb-16 md:mb-20 gap-8">
-            <div class="max-w-2xl">
-                <span class="font-label text-sm uppercase tracking-[0.2em] text-secondary mb-4 block font-bold">Platform</span>
-                <h2 class="font-headline text-3xl md:text-5xl font-bold tracking-tight text-primary">Enterprise-Grade Package Management Solution</h2>
+            <div class="max-w-3xl">
+                <span class="font-label text-sm uppercase tracking-[0.2em] text-secondary mb-4 block font-bold">Package Management</span>
+                <h2 class="font-headline text-3xl md:text-5xl font-bold tracking-tight text-primary mb-6">Log it in seconds. Residents hear right away.</h2>
+                <p class="text-lg text-on-surface-variant leading-relaxed">
+                    The desk logs a parcel &mdash; or scans the label with a phone &mdash; and the resident is notified instantly by email or SMS. Pickups are confirmed and every parcel has a history. Over 220,000 parcels handled across five years in production.
+                </p>
             </div>
-            <div class="pb-2">
-                <a onclick="handleViewDemo()" class="text-on-surface-variant hover:text-primary font-medium flex items-center gap-2 border-b-2 border-outline-variant/30 pb-1 transition-all cursor-pointer">
-                    Try the demo <span class="material-symbols-outlined text-sm">north_east</span>
+            <div class="pb-2 shrink-0">
+                <a href="#" onclick="handleViewDemo(); return false;" class="text-on-surface-variant hover:text-primary font-medium flex items-center gap-2 border-b-2 border-outline-variant/30 pb-1 transition-all cursor-pointer">
+                    Try the package demo <span class="material-symbols-outlined text-sm" aria-hidden="true">north_east</span>
                 </a>
             </div>
         </div>
-        <!-- Row 1 -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            <div class="group p-10 bg-surface-container-lowest rounded-xl transition-all duration-300 hover:bg-surface-container-low hover:-translate-y-2">
-                <div class="w-14 h-14 bg-secondary-container/10 rounded-lg flex items-center justify-center mb-8 group-hover:bg-secondary group-hover:text-white transition-colors">
-                    <span class="material-symbols-outlined text-3xl">inventory_2</span>
-                </div>
-                <h3 class="font-headline text-2xl font-bold text-primary mb-4">Automated Package Tracking</h3>
-                <p class="text-on-surface-variant leading-relaxed">Digital tracking with instant resident notifications. Log, track, and confirm pickups in seconds.</p>
+
+        <ol class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 md:mb-20">
+            <li class="bg-surface-container-lowest p-8 rounded-xl">
+                <p class="font-headline text-4xl font-extrabold text-secondary mb-4">1</p>
+                <h3 class="font-headline text-xl font-bold text-primary mb-2">Log or scan</h3>
+                <p class="text-on-surface-variant leading-relaxed">Type the unit or scan the shipping label with a phone. No hardware.</p>
+            </li>
+            <li class="bg-surface-container-lowest p-8 rounded-xl">
+                <p class="font-headline text-4xl font-extrabold text-secondary mb-4">2</p>
+                <h3 class="font-headline text-xl font-bold text-primary mb-2">Resident is notified</h3>
+                <p class="text-on-surface-variant leading-relaxed">Email or SMS the moment it's logged.</p>
+            </li>
+            <li class="bg-surface-container-lowest p-8 rounded-xl">
+                <p class="font-headline text-4xl font-extrabold text-secondary mb-4">3</p>
+                <h3 class="font-headline text-xl font-bold text-primary mb-2">Pickup confirmed</h3>
+                <p class="text-on-surface-variant leading-relaxed">The desk marks it collected; the record shows who and when.</p>
+            </li>
+            <li class="bg-surface-container-lowest p-8 rounded-xl">
+                <p class="font-headline text-4xl font-extrabold text-secondary mb-4">4</p>
+                <h3 class="font-headline text-xl font-bold text-primary mb-2">Managers see it all</h3>
+                <p class="text-on-surface-variant leading-relaxed">Reporting across units and buildings, with usage limits if you need them.</p>
+            </li>
+        </ol>
+
+        <!-- Proof -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-16 md:mb-20">
+            <div class="bg-surface-container-lowest rounded-xl p-8 text-center">
+                <p class="font-headline text-4xl md:text-5xl font-extrabold text-primary mb-2">220,000+</p>
+                <p class="text-on-surface-variant">parcels handled in production</p>
             </div>
-            <div class="group p-10 bg-surface-container-lowest rounded-xl transition-all duration-300 hover:bg-surface-container-low hover:-translate-y-2 editorial-grid-break">
-                <div class="w-14 h-14 bg-secondary-container/10 rounded-lg flex items-center justify-center mb-8 group-hover:bg-secondary group-hover:text-white transition-colors">
-                    <span class="material-symbols-outlined text-3xl">notifications_active</span>
-                </div>
-                <h3 class="font-headline text-2xl font-bold text-primary mb-4">Multi-Channel Notifications</h3>
-                <p class="text-on-surface-variant leading-relaxed">Automated SMS and email notifications ensure residents are always informed the moment a package arrives.</p>
+            <div class="bg-surface-container-lowest rounded-xl p-8 text-center">
+                <p class="font-headline text-4xl md:text-5xl font-extrabold text-primary mb-2">70+ a day</p>
+                <p class="text-on-surface-variant">at a busy building, seconds each</p>
             </div>
-            <div class="group p-10 bg-surface-container-lowest rounded-xl transition-all duration-300 hover:bg-surface-container-low hover:-translate-y-2">
-                <div class="w-14 h-14 bg-secondary-container/10 rounded-lg flex items-center justify-center mb-8 group-hover:bg-secondary group-hover:text-white transition-colors">
-                    <span class="material-symbols-outlined text-3xl">group</span>
-                </div>
-                <h3 class="font-headline text-2xl font-bold text-primary mb-4">Resident Management</h3>
-                <p class="text-on-surface-variant leading-relaxed">Self-service resident portal and database. Residents register themselves and manage their preferences.</p>
+            <div class="bg-surface-container-lowest rounded-xl p-8 text-center">
+                <p class="font-headline text-4xl md:text-5xl font-extrabold text-primary mb-2">5 years</p>
+                <p class="text-on-surface-variant">running daily, no hardware installed</p>
             </div>
         </div>
-        <!-- Row 2 -->
+
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="group p-10 bg-surface-container-lowest rounded-xl transition-all duration-300 hover:bg-surface-container-low hover:-translate-y-2">
-                <div class="w-14 h-14 bg-secondary-container/10 rounded-lg flex items-center justify-center mb-8 group-hover:bg-secondary group-hover:text-white transition-colors">
-                    <span class="material-symbols-outlined text-3xl">insights</span>
-                </div>
-                <h3 class="font-headline text-2xl font-bold text-primary mb-4">Business Intelligence</h3>
-                <p class="text-on-surface-variant leading-relaxed">Usage analytics and reporting dashboards that give you full visibility into package operations.</p>
+            <div class="p-8 bg-surface-container-lowest rounded-xl">
+                <span class="material-symbols-outlined text-3xl text-secondary mb-4 block" aria-hidden="true">inventory_2</span>
+                <h3 class="font-headline text-xl font-bold text-primary mb-2">Automated Package Tracking</h3>
+                <p class="text-on-surface-variant leading-relaxed">Digital tracking with instant resident notifications. Log, track, and confirm pickups in seconds.</p>
             </div>
-            <div class="group p-10 bg-surface-container-lowest rounded-xl transition-all duration-300 hover:bg-surface-container-low hover:-translate-y-2 editorial-grid-break">
-                <div class="w-14 h-14 bg-secondary-container/10 rounded-lg flex items-center justify-center mb-8 group-hover:bg-secondary group-hover:text-white transition-colors">
-                    <span class="material-symbols-outlined text-3xl">payments</span>
-                </div>
-                <h3 class="font-headline text-2xl font-bold text-primary mb-4">Cost Management</h3>
-                <p class="text-on-surface-variant leading-relaxed">Transparent usage tracking and billing. Know exactly what you're paying for with no surprises.</p>
+            <div class="p-8 bg-surface-container-lowest rounded-xl">
+                <span class="material-symbols-outlined text-3xl text-secondary mb-4 block" aria-hidden="true">notifications_active</span>
+                <h3 class="font-headline text-xl font-bold text-primary mb-2">Multi-Channel Notifications</h3>
+                <p class="text-on-surface-variant leading-relaxed">Automated SMS and email notifications ensure residents are always informed the moment a package arrives.</p>
             </div>
-            <div class="group p-10 bg-surface-container-lowest rounded-xl transition-all duration-300 hover:bg-surface-container-low hover:-translate-y-2">
-                <div class="w-14 h-14 bg-secondary-container/10 rounded-lg flex items-center justify-center mb-8 group-hover:bg-secondary group-hover:text-white transition-colors">
-                    <span class="material-symbols-outlined text-3xl">domain</span>
-                </div>
-                <h3 class="font-headline text-2xl font-bold text-primary mb-4">Enterprise Scale</h3>
-                <p class="text-on-surface-variant leading-relaxed">Multi-property management with custom branding. Scale from one building to an entire portfolio.</p>
+            <div class="p-8 bg-surface-container-lowest rounded-xl">
+                <span class="material-symbols-outlined text-3xl text-secondary mb-4 block" aria-hidden="true">photo_camera</span>
+                <h3 class="font-headline text-xl font-bold text-primary mb-2">AI Label Scanning</h3>
+                <p class="text-on-surface-variant leading-relaxed">Scan a shipping label with a phone camera and the unit is filled in for you.</p>
+            </div>
+            <div class="p-8 bg-surface-container-lowest rounded-xl">
+                <span class="material-symbols-outlined text-3xl text-secondary mb-4 block" aria-hidden="true">fact_check</span>
+                <h3 class="font-headline text-xl font-bold text-primary mb-2">Pickup Confirmation &amp; Audit Trail</h3>
+                <p class="text-on-surface-variant leading-relaxed">Every pickup is timestamped, so there are fewer disputes and clearer accountability.</p>
+            </div>
+            <div class="p-8 bg-surface-container-lowest rounded-xl">
+                <span class="material-symbols-outlined text-3xl text-secondary mb-4 block" aria-hidden="true">speed</span>
+                <h3 class="font-headline text-xl font-bold text-primary mb-2">Per-Unit Limits</h3>
+                <p class="text-on-surface-variant leading-relaxed">Set monthly parcel limits per unit, with overage fees and resident notices if you need them.</p>
+            </div>
+            <div class="p-8 bg-surface-container-lowest rounded-xl">
+                <span class="material-symbols-outlined text-3xl text-secondary mb-4 block" aria-hidden="true">insights</span>
+                <h3 class="font-headline text-xl font-bold text-primary mb-2">Package Reporting</h3>
+                <p class="text-on-surface-variant leading-relaxed">Volume by courier and time of day, so you can see where the desk's time goes.</p>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Visitor Parking Section -->
-<section id="parking" class="py-24 md:py-32 bg-surface-container-low">
+<section id="parking" class="py-24 md:py-32 bg-surface">
     <div class="max-w-7xl mx-auto px-6 md:px-8">
-        <div class="max-w-3xl mb-16 md:mb-20">
-            <span class="font-label text-sm uppercase tracking-[0.2em] text-secondary mb-4 block font-bold">Visitor Parking</span>
-            <h2 class="font-headline text-3xl md:text-5xl font-bold tracking-tight text-primary mb-6">Residents invite their guests. The desk just checks.</h2>
-            <p class="text-lg text-on-surface-variant leading-relaxed">
-                Every visitor pass starts with a resident, so there is no sign-up sheet, no visitor registration and no approvals queue.
-                Guests get a pass on their phone; the desk sees who is parked and can check any car in seconds.
-                Use it on its own or alongside package management.
-            </p>
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 md:mb-20 gap-8">
+            <div class="max-w-3xl">
+                <span class="font-label text-sm uppercase tracking-[0.2em] text-secondary mb-4 block font-bold">Visitor Parking</span>
+                <h2 class="font-headline text-3xl md:text-5xl font-bold tracking-tight text-primary mb-6">Residents invite their guests. The desk just checks.</h2>
+                <p class="text-lg text-on-surface-variant leading-relaxed">
+                    Every visitor pass starts with a resident, so there is no sign-up sheet, no visitor registration and no approvals queue. Guests get a pass on their phone; the desk sees who is parked and can check any car in seconds. Use it on its own or together with Package Management.
+                </p>
+            </div>
+            <div class="pb-2 shrink-0">
+                <a href="parking-demo.html" class="text-on-surface-variant hover:text-primary font-medium flex items-center gap-2 border-b-2 border-outline-variant/30 pb-1 transition-all cursor-pointer">
+                    Walk through the parking demo <span class="material-symbols-outlined text-sm" aria-hidden="true">north_east</span>
+                </a>
+            </div>
         </div>
 
         <!-- How it works -->
@@ -372,6 +440,47 @@
     </div>
 </section>
 
+<!-- Shared Section -->
+<section id="shared" class="py-24 md:py-32 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-6 md:px-8">
+        <div class="max-w-3xl mb-16 md:mb-20">
+            <span class="font-label text-sm uppercase tracking-[0.2em] text-secondary mb-4 block font-bold">Platform</span>
+            <h2 class="font-headline text-3xl md:text-5xl font-bold tracking-tight text-primary">Included with every module</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="p-8 bg-surface-container-lowest rounded-xl">
+                <span class="material-symbols-outlined text-3xl text-secondary mb-4 block" aria-hidden="true">group</span>
+                <h3 class="font-headline text-xl font-bold text-primary mb-2">Resident Registration</h3>
+                <p class="text-on-surface-variant leading-relaxed">Residents register themselves once, for every module your building uses.</p>
+            </div>
+            <div class="p-8 bg-surface-container-lowest rounded-xl">
+                <span class="material-symbols-outlined text-3xl text-secondary mb-4 block" aria-hidden="true">palette</span>
+                <h3 class="font-headline text-xl font-bold text-primary mb-2">Custom Branding</h3>
+                <p class="text-on-surface-variant leading-relaxed">Your building's name and logo on resident pages, emails and passes.</p>
+            </div>
+            <div class="p-8 bg-surface-container-lowest rounded-xl">
+                <span class="material-symbols-outlined text-3xl text-secondary mb-4 block" aria-hidden="true">domain</span>
+                <h3 class="font-headline text-xl font-bold text-primary mb-2">Multi-Building Portfolios</h3>
+                <p class="text-on-surface-variant leading-relaxed">Multi-property management. Scale from one building to an entire portfolio.</p>
+            </div>
+            <div class="p-8 bg-surface-container-lowest rounded-xl">
+                <span class="material-symbols-outlined text-3xl text-secondary mb-4 block" aria-hidden="true">insights</span>
+                <h3 class="font-headline text-xl font-bold text-primary mb-2">Reporting &amp; Activity Log</h3>
+                <p class="text-on-surface-variant leading-relaxed">Usage dashboards and a full activity log across packages and parking.</p>
+            </div>
+            <div class="p-8 bg-surface-container-lowest rounded-xl">
+                <span class="material-symbols-outlined text-3xl text-secondary mb-4 block" aria-hidden="true">devices</span>
+                <h3 class="font-headline text-xl font-bold text-primary mb-2">No Hardware, No Apps</h3>
+                <p class="text-on-surface-variant leading-relaxed">Runs in any browser. Residents and guests never install anything.</p>
+            </div>
+            <div class="p-8 bg-surface-container-lowest rounded-xl">
+                <span class="material-symbols-outlined text-3xl text-secondary mb-4 block" aria-hidden="true">payments</span>
+                <h3 class="font-headline text-xl font-bold text-primary mb-2">Transparent Billing</h3>
+                <p class="text-on-surface-variant leading-relaxed">Transparent usage tracking and billing. Know exactly what you're paying for with no surprises.</p>
+            </div>
+        </div>
+    </div>
+</section>
 <!-- About Section -->
 <section id="about" class="py-24 md:py-32 bg-primary-container text-white overflow-hidden relative">
     <div class="max-w-3xl mx-auto px-6 md:px-8 relative z-10">
@@ -409,85 +518,70 @@
 </section>
 
 <!-- Pricing Section -->
-<section id="pricing" class="py-24 md:py-32 bg-surface-container-low">
+<section id="pricing" class="py-24 md:py-32 bg-surface">
     <div class="max-w-7xl mx-auto px-6 md:px-8">
         <div class="text-center mb-16 md:mb-20">
             <span class="font-label text-sm uppercase tracking-[0.2em] text-secondary mb-4 block font-bold">Pricing</span>
-            <h2 class="font-headline text-3xl md:text-5xl font-bold tracking-tight text-primary mb-4">Simple Per-Unit Pricing</h2>
-            <p class="text-on-surface-variant text-lg max-w-2xl mx-auto">Predictable annual costs that scale with your portfolio</p>
+            <h2 class="font-headline text-3xl md:text-5xl font-bold tracking-tight text-primary mb-4">Priced per module</h2>
+            <p class="text-on-surface-variant text-lg max-w-2xl mx-auto">Pay for the modules your building uses. Billed annually in CAD.</p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <!-- What's Included -->
-            <div class="bg-surface-container-lowest p-10 md:p-12 rounded-2xl">
-                <h3 class="font-headline text-2xl font-bold text-primary mb-8">What's Included</h3>
-                <ul class="space-y-5">
-                    <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size: 20px;">check_circle</span>
-                        <span class="text-on-surface-variant">Digital package tracking</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size: 20px;">check_circle</span>
-                        <span class="text-on-surface-variant"><strong class="text-primary">Email &amp; SMS notifications</strong> &mdash; both included</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size: 20px;">check_circle</span>
-                        <span class="text-on-surface-variant">AI label scanning from your phone</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size: 20px;">check_circle</span>
-                        <span class="text-on-surface-variant">Resident registration system</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size: 20px;">check_circle</span>
-                        <span class="text-on-surface-variant">Reporting, analytics &amp; usage limits</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size: 20px;">check_circle</span>
-                        <span class="text-on-surface-variant">Audit trail &amp; pickup confirmations</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size: 20px;">check_circle</span>
-                        <span class="text-on-surface-variant">Email support</span>
-                    </li>
-                </ul>
-            </div>
-            <!-- Price -->
-            <div class="bg-surface-container-lowest p-10 md:p-12 rounded-2xl flex flex-col">
-                <h3 class="font-headline text-2xl font-bold text-primary mb-8">What It Costs</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div class="bg-surface-container-lowest p-10 md:p-12 rounded-2xl flex flex-col border border-outline-variant/20">
+                <h3 class="font-headline text-2xl font-bold text-primary mb-6">Package Management</h3>
                 <div class="bg-surface-container-low p-8 rounded-xl">
                     <div class="flex items-baseline gap-2 mb-1">
                         <span class="font-headline text-5xl font-extrabold text-primary">$12</span>
                         <span class="text-on-surface-variant text-lg">per unit / year</span>
                     </div>
-                    <p class="text-on-surface-variant text-sm mb-6">$2,000 minimum annual fee &middot; billed annually in CAD</p>
-                    <p class="text-on-surface-variant text-sm">
-                        That works out to roughly <strong class="text-primary">16&cent; per parcel handled</strong>
-                        at typical volume &mdash; about six packages per unit each month.
-                    </p>
+                    <p class="text-on-surface-variant text-sm mb-4">$2,000 minimum annual fee</p>
+                    <p class="text-on-surface-variant text-sm">About <strong class="text-primary">16&cent; per parcel</strong> at typical volume (six per unit a month).</p>
                 </div>
-                <p class="text-on-surface-variant text-sm mt-6">
-                    One price. No notification tiers, no per-message fees, no hardware to buy,
-                    no setup charge.
-                </p>
-                <div class="mt-6 pt-6 border-t border-outline/20">
-                    <p class="font-headline font-bold text-primary mb-1">Adding visitor parking?</p>
-                    <p class="text-on-surface-variant text-sm">Available on its own or alongside package management. <a href="mailto:info@rezanto.com?subject=Visitor%20parking%20pricing" class="text-secondary hover:text-on-secondary-container font-medium">Contact us for pricing</a>.</p>
+                <ul class="space-y-4 mt-8"><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary mt-0.5" style="font-size: 20px;" aria-hidden="true">check_circle</span><span class="text-on-surface-variant">Digital package tracking</span></li><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary mt-0.5" style="font-size: 20px;" aria-hidden="true">check_circle</span><span class="text-on-surface-variant"><strong class="text-primary">Email &amp; SMS notifications</strong> &mdash; both included</span></li><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary mt-0.5" style="font-size: 20px;" aria-hidden="true">check_circle</span><span class="text-on-surface-variant">AI label scanning from your phone</span></li><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary mt-0.5" style="font-size: 20px;" aria-hidden="true">check_circle</span><span class="text-on-surface-variant">Resident registration system</span></li><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary mt-0.5" style="font-size: 20px;" aria-hidden="true">check_circle</span><span class="text-on-surface-variant">Reporting, analytics &amp; usage limits</span></li><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary mt-0.5" style="font-size: 20px;" aria-hidden="true">check_circle</span><span class="text-on-surface-variant">Audit trail &amp; pickup confirmations</span></li><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary mt-0.5" style="font-size: 20px;" aria-hidden="true">check_circle</span><span class="text-on-surface-variant">Email support</span></li></ul>
+                <p class="font-headline font-bold text-secondary mt-auto pt-8">Less than a fifth the cost of a locker system &mdash; and nothing to install.</p>
+            </div>
+            <div class="bg-surface-container-lowest p-10 md:p-12 rounded-2xl flex flex-col border border-outline-variant/20">
+                <h3 class="font-headline text-2xl font-bold text-primary mb-6">Visitor Parking</h3>
+                <div class="bg-surface-container-low p-8 rounded-xl">
+                    <div class="flex items-baseline gap-2 mb-1">
+                        <span class="font-headline text-5xl font-extrabold text-primary">Contact us</span>
+                    </div>
+                    <p class="text-on-surface-variant text-sm">Priced for your building's units and visitor stalls.</p>
                 </div>
-                <div class="mt-6 pt-6 border-t border-outline/20">
-                    <p class="font-headline font-bold text-primary mb-1">Managing multiple buildings?</p>
-                    <p class="text-on-surface-variant text-sm">Portfolio pricing is available for property management companies. Volume rates apply from the second building onward.</p>
+                <ul class="space-y-4 mt-8"><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary mt-0.5" style="font-size: 20px;" aria-hidden="true">check_circle</span><span class="text-on-surface-variant">Resident invites by email sign-in</span></li><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary mt-0.5" style="font-size: 20px;" aria-hidden="true">check_circle</span><span class="text-on-surface-variant">Digital guest passes</span></li><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary mt-0.5" style="font-size: 20px;" aria-hidden="true">check_circle</span><span class="text-on-surface-variant">Desk board and car lookup</span></li><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary mt-0.5" style="font-size: 20px;" aria-hidden="true">check_circle</span><span class="text-on-surface-variant">Building rules and limits</span></li><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary mt-0.5" style="font-size: 20px;" aria-hidden="true">check_circle</span><span class="text-on-surface-variant">Pass records emailed to the unit</span></li><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary mt-0.5" style="font-size: 20px;" aria-hidden="true">check_circle</span><span class="text-on-surface-variant">Print-ready QR codes</span></li><li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary mt-0.5" style="font-size: 20px;" aria-hidden="true">check_circle</span><span class="text-on-surface-variant">Email support</span></li></ul>
+                <div class="mt-auto pt-8">
+                    <a href="mailto:info@rezanto.com?subject=Visitor%20parking%20pricing" class="inline-block bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-3 rounded-md font-semibold hover:scale-[1.02] active:scale-95 transition-all duration-200 shadow-lg shadow-primary/10">Ask for pricing</a>
                 </div>
-                <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary py-4 rounded-md font-semibold hover:scale-[1.02] active:scale-95 transition-all duration-200 shadow-lg shadow-primary/10 mt-8">
-                    Get Started
-                </button>
             </div>
         </div>
-        <!-- Footer notes -->
-        <div class="text-center mt-12 space-y-2">
-            <p class="text-on-surface-variant text-sm"><strong class="text-primary">Simple annual pricing.</strong> Priced on the number of units in your building &mdash; nothing else to calculate.</p>
-            <p class="text-on-surface-variant text-sm">Portfolio and partner-managed properties are quoted separately at volume rates.</p>
-            <p class="text-on-surface-variant text-sm">Need a quote for your building? <a href="mailto:info@rezanto.com" class="text-secondary hover:text-on-secondary-container font-medium">Contact us for pricing</a>.</p>
-            <p class="font-headline font-bold text-secondary text-lg mt-6">Less than a fifth the cost of a locker system &mdash; and nothing to install.</p>
+        <div class="text-center mt-12">
+            <p class="text-on-surface-variant mb-8">Using both modules? One agreement, one invoice. Portfolio pricing applies from the second building onward.</p>
+            <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-10 py-4 rounded-md font-semibold hover:scale-[1.02] active:scale-95 transition-all duration-200 shadow-lg shadow-primary/10">
+                Get Started
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Demos Section -->
+<section id="demos" class="py-24 md:py-32 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-6 md:px-8">
+        <div class="max-w-3xl mb-16 md:mb-20">
+            <span class="font-label text-sm uppercase tracking-[0.2em] text-secondary mb-4 block font-bold">Demos</span>
+            <h2 class="font-headline text-3xl md:text-5xl font-bold tracking-tight text-primary">See it working</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-surface-container-lowest p-10 rounded-xl flex flex-col border border-outline-variant/20">
+                <div class="w-14 h-14 bg-secondary-container/10 rounded-lg flex items-center justify-center mb-6 text-secondary"><span class="material-symbols-outlined text-3xl" aria-hidden="true">inventory_2</span></div>
+                <h3 class="font-headline text-2xl font-bold text-primary mb-3">Package Management demo</h3>
+                <p class="text-on-surface-variant leading-relaxed mb-8">A live, self-guided demo of Sunset Towers: log a package, notify a resident, record a pickup.</p>
+                <div class="mt-auto"><button onclick="handleViewDemo()" class="inline-block bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-3 rounded-md font-semibold hover:scale-[1.02] active:scale-95 transition-all duration-200 shadow-lg shadow-primary/10">Launch package demo</button><p class="text-xs text-on-surface-variant/70 mt-3">Opens the Rezanto app in demo mode.</p></div>
+            </div>
+            <div class="bg-surface-container-lowest p-10 rounded-xl flex flex-col border border-outline-variant/20">
+                <div class="w-14 h-14 bg-secondary-container/10 rounded-lg flex items-center justify-center mb-6 text-secondary"><span class="material-symbols-outlined text-3xl" aria-hidden="true">local_parking</span></div>
+                <h3 class="font-headline text-2xl font-bold text-primary mb-3">Visitor Parking walkthrough</h3>
+                <p class="text-on-surface-variant leading-relaxed mb-8">Follow one guest from invite to parking pass to the desk&#39;s car lookup, with real screens.</p>
+                <div class="mt-auto"><a href="parking-demo.html" class="inline-block bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-3 rounded-md font-semibold hover:scale-[1.02] active:scale-95 transition-all duration-200 shadow-lg shadow-primary/10">Open parking walkthrough</a></div>
+            </div>
         </div>
     </div>
 </section>
@@ -522,19 +616,18 @@
                     Schedule a Demo
                 </button>
                 <a href="rezanto-brochure.pdf" download class="flex items-center gap-2 px-10 py-4 rounded-md font-semibold text-primary hover:bg-surface-container transition-colors">
-                    <span class="material-symbols-outlined">download</span>
-                    Download Brochure
+                    <span class="material-symbols-outlined" aria-hidden="true">download</span>
+                    Package Management datasheet (PDF)
                 </a>
                 <a href="parking-datasheet.pdf" download class="flex items-center gap-2 px-10 py-4 rounded-md font-semibold text-primary hover:bg-surface-container transition-colors">
-                    <span class="material-symbols-outlined">download</span>
-                    Visitor Parking Datasheet
+                    <span class="material-symbols-outlined" aria-hidden="true">download</span>
+                    Visitor Parking datasheet (PDF)
                 </a>
             </div>
         </div>
     </div>
 </section>
 
-</main>
 
 <!-- Footer -->
 <footer class="bg-primary text-white pt-16 pb-8">
@@ -547,9 +640,10 @@
             <div>
                 <h4 class="font-label text-xs uppercase tracking-widest text-on-primary-container mb-4">Product</h4>
                 <div class="flex flex-col gap-3">
-                    <a href="#features" class="text-on-primary-container hover:text-white transition-colors text-sm">Features</a>
+                    <a href="#packages" class="text-on-primary-container hover:text-white transition-colors text-sm">Packages</a>
+                    <a href="#parking" class="text-on-primary-container hover:text-white transition-colors text-sm">Visitor Parking</a>
                     <a href="#pricing" class="text-on-primary-container hover:text-white transition-colors text-sm">Pricing</a>
-                    <a onclick="handleViewDemo()" class="text-on-primary-container hover:text-white transition-colors text-sm cursor-pointer">Demo</a>
+                    <a href="#demos" class="text-on-primary-container hover:text-white transition-colors text-sm">Demos</a>
                 </div>
             </div>
             <div>
