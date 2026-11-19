@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezanto Security Patrol Datasheet</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        @page {
+            size: Letter;
+            margin: 0;
+        }
+
+        :root {
+            --navy: #162839;
+            --blue: #005ac1;
+            --blue-soft: #eaf2ff;
+            --panel: #f4f8fc;
+            --panel-2: #eef4fb;
+            --ink: #122130;
+            --muted: #556070;
+            --line: #d7dfe8;
+            --white: #ffffff;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: #eef4fb;
+            color: var(--ink);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        body {
+            width: 8.5in;
+            margin: 0 auto;
+        }
+
+        .page {
+            width: 8.5in;
+            height: 11in;
+            padding: 0.42in;
+            background: #eef4fb;
+            position: relative;
+            overflow: hidden;
+            page-break-after: always;
+            break-after: page;
+        }
+
+        .page:last-child {
+            page-break-after: auto;
+            break-after: auto;
+        }
+
+        .sheet {
+            width: 100%;
+            height: 100%;
+            background: var(--white);
+            border: 1px solid #d8e0ea;
+            padding: 0.3in;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding-bottom: 0.14in;
+            margin-bottom: 0.18in;
+            border-bottom: 3px solid var(--blue);
+        }
+
+        .logo { height: 0.42in; width: auto; display: block; }
+
+        .eyebrow {
+            font-size: 8px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--blue);
+            margin-bottom: 5px;
+        }
+
+        .topbar-copy {
+            text-align: right;
+            font-size: 9.4px;
+            line-height: 1.4;
+            color: var(--muted);
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.5fr 0.78fr;
+            gap: 0.16in;
+            margin-bottom: 0.16in;
+        }
+
+        .hero-main,
+        .hero-side,
+        .card,
+        .business-case,
+        .contact,
+        .highlight,
+        .step,
+        .plan,
+        .feature {
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .hero-main {
+            background: var(--panel);
+            border: 1px solid #dbe5f0;
+            padding: 0.2in;
+        }
+
+        .hero-main h1 {
+            font-size: 26px;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            color: var(--navy);
+            margin-bottom: 9px;
+            font-weight: 800;
+        }
+
+        .hero-main p {
+            font-size: 11.2px;
+            line-height: 1.52;
+            color: #334155;
+        }
+
+        .hero-points {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 12px;
+            margin-top: 11px;
+        }
+
+        .hero-point {
+            display: flex;
+            align-items: flex-start;
+            gap: 7px;
+            font-size: 9.8px;
+            line-height: 1.35;
+        }
+
+        .check {
+            width: 16px;
+            min-width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--blue);
+            color: var(--white);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 800;
+            margin-top: 1px;
+        }
+
+        .hero-side {
+            background: var(--navy);
+            color: var(--white);
+            padding: 0.2in;
+        }
+
+        .hero-side h2 {
+            font-size: 12px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .stat {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.18);
+        }
+
+        .stat:last-of-type { border-bottom: none; padding-bottom: 0; }
+
+        .stat-value {
+            font-size: 22px;
+            line-height: 1;
+            font-weight: 800;
+            margin-bottom: 3px;
+        }
+
+        .stat-label {
+            font-size: 8.2px;
+            line-height: 1.35;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: rgba(255,255,255,0.82);
+        }
+
+        .hero-side-note {
+            margin-top: 11px;
+            font-size: 8.8px;
+            line-height: 1.4;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .section-title {
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .features { margin-bottom: 0.16in; }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .feature {
+            border: 1px solid var(--line);
+            background: var(--white);
+            padding: 11px;
+            min-height: 70px;
+            display: flex;
+            gap: 9px;
+        }
+
+        .feature-number {
+            width: 26px;
+            min-width: 26px;
+            height: 26px;
+            background: var(--blue-soft);
+            color: var(--blue);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .feature h3 {
+            font-size: 10.4px;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .feature p {
+            font-size: 9.2px;
+            line-height: 1.38;
+            color: var(--muted);
+        }
+
+        .split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.14in;
+        }
+
+        .card {
+            border: 1px solid var(--line);
+            background: var(--white);
+            padding: 13px;
+        }
+
+        .card h3, .contact h3 {
+            font-size: 15px;
+            line-height: 1.15;
+            color: var(--navy);
+            margin-bottom: 6px;
+            font-weight: 800;
+        }
+
+        .card-intro, .contact p, .business-copy {
+            font-size: 9.6px;
+            line-height: 1.45;
+            color: var(--muted);
+        }
+
+        .included-list, .fit-list {
+            list-style: none;
+        }
+
+        .included-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 7px 12px;
+        }
+
+        .included-list li {
+            position: relative;
+            padding-left: 12px;
+            font-size: 9.2px;
+            line-height: 1.35;
+        }
+
+        .included-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--blue);
+            font-weight: 800;
+        }
+
+        .business-case {
+            background: var(--navy);
+            color: var(--white);
+            padding: 13px;
+        }
+
+        .business-case .section-title { color: var(--white); margin-bottom: 7px; }
+        .business-copy { color: rgba(255,255,255,0.82); margin-bottom: 9px; }
+
+        .roi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 7px;
+        }
+
+        .roi-item {
+            border-right: 1px solid rgba(255,255,255,0.16);
+            padding-right: 6px;
+        }
+
+        .roi-item:last-child { border-right: none; padding-right: 0; }
+
+        .roi-value {
+            font-size: 18px;
+            line-height: 1;
+            font-weight: 800;
+            margin-bottom: 3px;
+        }
+
+        .roi-label {
+            font-size: 7.8px;
+            line-height: 1.35;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: rgba(255,255,255,0.76);
+        }
+
+        .pricing-card {
+            border: 1px solid var(--line);
+            background: var(--white);
+            padding: 13px;
+            margin-bottom: 0.14in;
+        }
+
+        .plans {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 6px;
+        }
+
+        .plan { border: 1px solid var(--line); }
+
+        .plan-head {
+            padding: 8px 10px;
+            color: var(--white);
+            font-size: 9.2px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .plan.email .plan-head { background: var(--navy); }
+        .plan.sms .plan-head { background: var(--blue); }
+
+        .plan-body { padding: 10px; }
+
+        .price {
+            font-size: 20px;
+            line-height: 1;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 2px;
+        }
+
+        .unit, .minimum, .plan-copy, .pricing-notes {
+            font-size: 9px;
+            line-height: 1.35;
+            color: var(--muted);
+        }
+
+        .minimum, .plan-copy, .pricing-notes { margin-top: 6px; }
+
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 0.14in;
+        }
+
+        .highlight {
+            border: 1px solid var(--line);
+            background: var(--panel-2);
+            padding: 12px;
+        }
+
+        .highlight-value {
+            font-size: 20px;
+            line-height: 1;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .highlight-label {
+            font-size: 8.8px;
+            line-height: 1.35;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .process { margin-bottom: 0.14in; }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .step {
+            border: 1px solid var(--line);
+            background: var(--white);
+            padding: 11px;
+            min-height: 108px;
+        }
+
+        .step-num {
+            width: 24px;
+            height: 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--navy);
+            color: var(--white);
+            font-size: 11px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .step h3 {
+            font-size: 10px;
+            line-height: 1.3;
+            margin-bottom: 4px;
+        }
+
+        .step p {
+            font-size: 8.8px;
+            line-height: 1.38;
+            color: var(--muted);
+        }
+
+        .fit-list li {
+            border-bottom: 1px solid #e3e8ef;
+            padding-bottom: 8px;
+            margin-bottom: 8px;
+            font-size: 9.4px;
+            line-height: 1.4;
+        }
+
+        .fit-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .fit-list strong { color: var(--navy); }
+
+        .contact {
+            background: var(--panel);
+            border: 1px solid #dbe5f0;
+            padding: 13px;
+        }
+
+        .contact-meta {
+            margin-top: 9px;
+            padding-top: 8px;
+            border-top: 1px solid #d0dae5;
+            font-size: 9px;
+            line-height: 1.45;
+            color: var(--ink);
+        }
+
+        .contact-meta strong { color: var(--navy); }
+
+        .cta-band {
+            margin-top: 0.14in;
+            background: var(--navy);
+            color: var(--white);
+            padding: 14px;
+        }
+
+        .cta-band h3 {
+            font-size: 18px;
+            line-height: 1.1;
+            margin-bottom: 6px;
+            font-weight: 800;
+        }
+
+        .cta-band p {
+            font-size: 9.8px;
+            line-height: 1.45;
+            color: rgba(255,255,255,0.82);
+            max-width: 5.7in;
+        }
+
+        .cta-meta {
+            margin-top: 10px;
+            font-size: 9px;
+            line-height: 1.45;
+            color: rgba(255,255,255,0.95);
+        }
+
+        .footer {
+            position: absolute;
+            left: 0.3in;
+            right: 0.3in;
+            bottom: 0.18in;
+            padding-top: 8px;
+            border-top: 1px solid #dde5ee;
+            display: flex;
+            justify-content: space-between;
+            font-size: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #667085;
+        }
+
+        .page1-main {
+            height: calc(100% - 0.58in);
+        }
+
+        .page2-main {
+            height: calc(100% - 0.58in);
+        }
+        .hero-full { grid-template-columns: 1fr; }
+        .shots { display: grid; grid-template-columns: 1.55in 1fr 1.85in; gap: 12px; align-items: start; margin-bottom: 0.14in; }
+        .shot { break-inside: avoid; }
+        .shot img { display: block; width: 100%; border: 1px solid var(--line); background: var(--white); }
+        .shot.phone img { height: auto; }
+        .shot.log img { height: 3.1in; object-fit: cover; object-position: top; }
+        .shot figcaption { font-size: 8.8px; line-height: 1.35; color: var(--muted); margin-top: 5px; }
+        .shot-note { align-self: stretch; }
+        .features-grid.three { grid-template-columns: 1fr 1fr; }
+        .pricing-card .pricing-line { font-size: 12px; line-height: 1.4; color: var(--navy); font-weight: 700; }
+            .card ul.fit-list { margin-top: 4px; }
+        .features-grid .feature { min-height: 70px; padding: 14px; }
+        .features-grid .feature h3 { font-size: 11.5px; }
+        .features-grid .feature p { font-size: 10px; }
+        .features-grid { gap: 12px; }
+        .features { margin-bottom: 0.22in; }
+        .split { margin-bottom: 0.05in; }
+        .pricing-card .pricing-line { font-size: 14px; }
+        .pricing-card .pricing-notes { font-size: 11px; }
+        .fit-list li { font-size: 10.4px; }
+        .cta-band { margin-top: 0.22in; padding: 20px; }
+        .cta-band h3 { font-size: 22px; }
+        .cta-band p { font-size: 10.8px; }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="sheet">
+            <div class="page1-main">
+                <div class="topbar">
+                    <img src="brand/rezanto-logo.png" alt="Rezanto" class="logo">
+                    <div class="topbar-copy">
+                        <div class="eyebrow">Datasheet</div>
+                        Security patrol for residential buildings
+                    </div>
+                </div>
+
+                <div class="hero hero-full">
+                    <div class="hero-main">
+                        <div class="eyebrow">Security Patrol</div>
+                        <h1>Proof of every security round, with secure tags that can&rsquo;t be faked</h1>
+                        <p>Guards tap their phone to a secure checkpoint tag, answer All clear or Report an issue, and the building has a record that stands up. No readers, no scanners, nothing for the guard to install.</p>
+                        <div class="hero-points">
+                            <div class="hero-point"><span class="check">&#10003;</span><span>Signed tags that can&rsquo;t be copied or faked</span></div>
+                            <div class="hero-point"><span class="check">&#10003;</span><span>Issues emailed to the building right away</span></div>
+                            <div class="hero-point"><span class="check">&#10003;</span><span>A patrol log and reports for boards and insurers</span></div>
+                            <div class="hero-point"><span class="check">&#10003;</span><span>Works on its own or alongside the other Rezanto modules</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-bottom:0.14in">
+                    <div class="section-title">The problem</div>
+                    <p class="card-intro">Paper logs and QR codes can be filled in or scanned from anywhere. A code or a sticker can be photographed and &lsquo;checked&rsquo; from the break room. A secure checkpoint tag is cryptographically signed, so each check proves the guard was standing there.</p>
+                </div>
+
+                <div class="process">
+                    <div class="section-title">How it works</div>
+                    <div class="process-grid">
+                        <div class="step">
+                            <div class="step-num">1</div>
+                            <h3>Guard taps the tag</h3>
+                            <p>Their phone opens the check. There is nothing to install.</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">2</div>
+                            <h3>All clear or an issue</h3>
+                            <p>A note and photos if something&rsquo;s wrong.</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">3</div>
+                            <h3>The building hears</h3>
+                            <p>An issue is emailed to the desk and managers at once.</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">4</div>
+                            <h3>Managers see every round</h3>
+                            <p>The patrol log, issues highlighted, and a report to download.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-title">See it in action</div>
+                <div class="shots">
+                    <figure class="shot phone"><img src="images/demo/patrol-tap.jpg" alt="Guard check screen"><figcaption>Guard: tap the tag, then All clear or Report an issue</figcaption></figure>
+                    <figure class="shot log"><img src="images/demo/patrol-log-web.jpg" alt="Patrol log"><figcaption>Managers: every check in one log, issues highlighted</figcaption></figure>
+                    <figure class="shot"><img src="images/demo/patrol-report-web.jpg" alt="Patrol report"><figcaption>A report for boards and insurers</figcaption></figure>
+                </div>
+            </div>
+
+            <div class="footer">
+                <span>Rezanto security patrol datasheet</span>
+                <span>Page 1</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="page">
+        <div class="sheet">
+            <div class="page2-main">
+                <div class="topbar">
+                    <img src="brand/rezanto-logo.png" alt="Rezanto" class="logo">
+                    <div class="topbar-copy">
+                        <div class="eyebrow">Features</div>
+                        Proof the round happened, not just a checkbox
+                    </div>
+                </div>
+
+                <div class="features">
+                    <div class="section-title">Features</div>
+                    <div class="features-grid">
+                        <div class="feature">
+                            <div class="feature-number">1</div>
+                            <div>
+                                <h3>Secure checkpoint tags</h3>
+                                <p>Signed tags that can&rsquo;t be copied, set up by Rezanto.</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-number">2</div>
+                            <div>
+                                <h3>Notes and photos</h3>
+                                <p>Up to five per check.</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-number">3</div>
+                            <div>
+                                <h3>Instant issue alerts</h3>
+                                <p>Email to the building contact and managers.</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-number">4</div>
+                            <div>
+                                <h3>Patrol log</h3>
+                                <p>Every check, with issues highlighted and photos.</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-number">5</div>
+                            <div>
+                                <h3>Reports for boards and insurers</h3>
+                                <p>A PDF or CSV with each checkpoint&rsquo;s checks, the longest gap between checks, missed checkpoints and every issue.</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-number">6</div>
+                            <div>
+                                <h3>Built for contractors</h3>
+                                <p>Guards sign in by emailed link, see only patrol, and can cover several buildings.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="split">
+                    <div class="card">
+                        <div class="section-title">For guards and contractors</div>
+                        <ul class="fit-list">
+                            <li>Sign in with an emailed link: no passwords, no app to install</li>
+                            <li>Works on the guard&rsquo;s own phone</li>
+                            <li>Sees only patrol, never resident or package data</li>
+                            <li>A contractor guard can cover several buildings</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="section-title">For managers and boards</div>
+                        <ul class="fit-list">
+                            <li><strong>Log:</strong> every check, with issues highlighted and photos</li>
+                            <li><strong>Alerts:</strong> an email to the building contact and managers the moment an issue is reported</li>
+                            <li><strong>Reports:</strong> PDF or CSV with a summary, each checkpoint&rsquo;s checks and longest gap, missed checkpoints, issues with photos, and every check</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="split" style="margin-top:0.14in">
+                    <div class="card">
+                        <div class="section-title">Setup</div>
+                        <p class="card-intro">Rezanto provides the secure tags and sets up your checkpoints. Nothing to wire, power or install beyond a small tag at each spot.</p>
+                    </div>
+                    <div class="card">
+                        <div class="section-title">Works with the rest of Rezanto</div>
+                        <p class="card-intro">One login for the desk, and shared buildings and staff. Use it on its own or together with Package Management and Visitor Parking. Contact us for pricing.</p>
+                    </div>
+                </div>
+
+                <div class="cta-band">
+                    <h3>Ready to prove every round?</h3>
+                    <p>Tell us about your building and its checkpoints, and we&rsquo;ll show how guards can prove each round with a tap, without adding work for the desk.</p>
+                    <div class="cta-meta">info@rezanto.com &nbsp; | &nbsp; rezanto.com &nbsp; | &nbsp; Vancouver, BC, Canada</div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <span>Rezanto security patrol datasheet</span>
+                <span>Page 2</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
